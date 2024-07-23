@@ -67,80 +67,78 @@
             background-color: #0056b3;
         }
         .checkbox-wrapper-28 {
-        margin-top: 10px;
-    --size: 25px;
-    position: relative;
-  }
-
-  .checkbox-wrapper-28 *,
-  .checkbox-wrapper-28 *:before,
-  .checkbox-wrapper-28 *:after {
-    box-sizing: border-box;
-  }
-
-  .checkbox-wrapper-28 .promoted-input-checkbox {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-  }
-
-  .checkbox-wrapper-28 input:checked ~ svg {
-    height: calc(var(--size) * 0.6);
-    -webkit-animation: draw-checkbox-28 ease-in-out 0.2s forwards;
-            animation: draw-checkbox-28 ease-in-out 0.2s forwards;
-  }
-  .checkbox-wrapper-28 label:active::after {
-    background-color: #e6e6e6;
-  }
-  .checkbox-wrapper-28 label {
-    color: black;
-    line-height: var(--size);
-    cursor: pointer;
-    position: relative;
-  }
-  .checkbox-wrapper-28 label:after {
-    content: "";
-    height: var(--size);
-    width: var(--size);
-    margin-right: 8px;
-    float: left;
-    border: 2px solid #6e6e6e;
-    border-radius: 5px;
-    transition: 0.15s all ease-out;
-  }
-  .checkbox-wrapper-28 svg {
-    stroke: #6e6e6e;
-    stroke-width: 3px;
-    height: 0;
-    width: calc(var(--size) * 0.6);
-    position: absolute;
-    left: calc(var(--size) * 0.21);
-    top: calc(var(--size) * 0.2);
-    stroke-dasharray: 33;
-  }
-
-  @-webkit-keyframes draw-checkbox-28 {
-    0% {
-      stroke-dashoffset: 33;
-    }
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
-
-  @keyframes draw-checkbox-28 {
-    0% {
-      stroke-dashoffset: 33;
-    }
-    100% {
-      stroke-dashoffset: 0;
-    }
-  }
+            margin-top: 10px;
+            --size: 25px;
+            position: relative;
+        }
+        .checkbox-wrapper-28 *,
+        .checkbox-wrapper-28 *:before,
+        .checkbox-wrapper-28 *:after {
+            box-sizing: border-box;
+        }
+        .checkbox-wrapper-28 .promoted-input-checkbox {
+            border: 0;
+            clip: rect(0 0 0 0);
+            height: 1px;
+            margin: -1px;
+            overflow: hidden;
+            padding: 0;
+            position: absolute;
+            width: 1px;
+        }
+        .checkbox-wrapper-28 input:checked ~ svg {
+            height: calc(var(--size) * 0.6);
+            -webkit-animation: draw-checkbox-28 ease-in-out 0.2s forwards;
+                    animation: draw-checkbox-28 ease-in-out 0.2s forwards;
+        }
+        .checkbox-wrapper-28 label:active::after {
+            background-color: #e6e6e6;
+        }
+        .checkbox-wrapper-28 label {
+            color: black;
+            line-height: var(--size);
+            cursor: pointer;
+            position: relative;
+            -webkit-user-select: none; /* Safari */
+            -ms-user-select: none; /* IE 10 and IE 11 */
+            user-select: none; /* Standard syntax */
+        }
+        .checkbox-wrapper-28 label:after {
+            content: "";
+            height: var(--size);
+            width: var(--size);
+            margin-right: 8px;
+            float: left;
+            border: 2px solid #6e6e6e;
+            border-radius: 5px;
+            transition: 0.15s all ease-out;
+        }
+        .checkbox-wrapper-28 svg {
+            stroke: #6e6e6e;
+            stroke-width: 3px;
+            height: 0;
+            width: calc(var(--size) * 0.6);
+            position: absolute;
+            left: calc(var(--size) * 0.21);
+            top: calc(var(--size) * 0.2);
+            stroke-dasharray: 33;
+        }
+        @-webkit-keyframes draw-checkbox-28 {
+            0% {
+                stroke-dashoffset: 33;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes draw-checkbox-28 {
+            0% {
+                stroke-dashoffset: 33;
+            }
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
     </style>
 </head>
 
@@ -156,17 +154,14 @@
             <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
         </div>
         <div class="checkbox-wrapper-28">
-            <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" />
-            <svg>
-                <use xlink:href="#checkmark-28" />
-            </svg>
+            <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" checked />
+            <svg><use xlink:href="#checkmark-28" /></svg>
             <label for="tmp-28">
-                Translate Text Automatically
+                Translate Text Automatically   
             </label>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
                 <symbol id="checkmark-28" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1">
-                    </path>
+                    <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1"></path>
                 </symbol>
             </svg>
         </div>
@@ -174,9 +169,33 @@
 
     <script>
         const englishToMath = {
-            'a': 'α', 'b': 'β', 'c': 'ℂ', 'd': '𝑑/𝑑𝑥', 'e': '2.718', 'f': 'φ', 'g': 'Γ(𝑥)', 'h': '𝘩(𝑥)', 'i': '∞', 'j': '√(-1)', 
-            'k': '𝑘', 'l': '𝑙𝑖𝑚', 'm': '⊿', 'n': 'ℕ', 'o': 'π𝑟²', 'p': 'π', 'q': 'ℚ', 'r': 'ℝ', 's': 'Σ', 't': 'τ', 
-            'u': '∪', 'v': '→', 'w': '𝑊(𝑥)', 'x': '𝑥', 'y': '𝑦', 'z': '𝑧', ' ': '　　'
+            'a': 'α',
+            'b': 'β',
+            'c': 'ℂ',
+            'd': '𝑑/𝑑𝑥',
+            'e': '2.718',
+            'f': 'φ',
+            'g': 'Γ(𝑥)',
+            'h': '𝘩(𝑥)',
+            'i': '∞',
+            'j': '√(-1)',
+            'k': '𝑘',
+            'l': '𝑙𝑖𝑚',
+            'm': '⊿',
+            'n': 'ℕ',
+            'o': 'π𝑟²',
+            'p': 'π',
+            'q': 'ℚ',
+            'r': 'ℝ',
+            's': 'Σ',
+            't': 'τ',
+            'u': '∪',
+            'v': '→',
+            'w': '𝑊(𝑥)',
+            'x': '𝑥',
+            'y': '𝑦',
+            'z': '𝑧',
+            ' ': '　　'
         };
 
         const mathToEnglish = Object.fromEntries(Object.entries(englishToMath).map(([k, v]) => [v, k]));
@@ -194,24 +213,26 @@
         }
 
         function handleEnglishInput() {
-            if (document.getElementById('autoTranslateCheckbox').checked) {
+            if (document.getElementById('tmp-28').checked) {
                 translateToMath();
             }
         }
 
         function handleMathInput() {
-            if (document.getElementById('autoTranslateCheckbox').checked) {
+            if (document.getElementById('tmp-28').checked) {
                 translateToEnglish();
             }
         }
 
         function toggleAutoTranslate() {
-            const autoTranslateEnabled = document.getElementById('autoTranslateCheckbox').checked;
+            const autoTranslateEnabled = document.getElementById('tmp-28').checked;
             document.getElementById('translateToMathBtn').disabled = autoTranslateEnabled;
             document.getElementById('translateToEnglishBtn').disabled = autoTranslateEnabled;
         }
         
         toggleAutoTranslate();
+        
+        console.log("%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Words are separated by \"　　\" (a wide space) and \"letters\" are separated by \"\\\" (a backslash). Enjoy!", "color: lime; font-size: 20px");
     </script>
 </body>
 

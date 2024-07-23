@@ -6,17 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>Mathemoglyphics Translator</title>
     <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: "Poppins", sans-serif;
+            font-family: "Manrope", sans-serif;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 50px;
-            background-color: #f0f0f0;
+            z-index: -99;
+            background-image: url("bg.jpg");
+            -webkit-backdrop-filter: blur(4px); /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
+  			backdrop-filter: blur(4px); /* Supported on all major browsers */
+            background-size: fill;
             margin: 0;
             zoom: 90%;
+        }
+        
+        .body-container {
+        	display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
         }
 
         .container {
@@ -29,7 +44,7 @@
             background: white;
             padding: 30px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         }
 
         .translator {
@@ -39,7 +54,7 @@
         }
 
         .translator textarea {
-            font-family: "Poppins", sans-serif;
+            font-family: "Manrope", sans-serif;
             width: 100%;
             height: 200px;
             margin: 10px;
@@ -50,17 +65,26 @@
             border-radius: 10px;
             resize: none;
             outline: none;
+            transition: all 0.25s ease;
+        }
+        
+        .translator textarea:hover {
+            box-shadow: 0 10px 10px -10px #ccc;
+        }
+        
+        .translator textarea:focus {
+            box-shadow: 0 10px 10px -10px #ccc;
         }
 
         .translator button {
-            font-family: "Poppins", sans-serif;
+            font-family: "Manrope", sans-serif;
             width: calc(50% - 20px);
             margin: 10px;
             padding: 15px;
             font-size: 16px;
             border: none;
             border-radius: 10px;
-            background-color: #4497cf;
+            background-color: #8f36f5;
             color: white;
             cursor: pointer;
             transition: all 0.25s ease;
@@ -73,11 +97,12 @@
         }
 
         .translator button:hover:enabled {
-            background-color: #055f9c;
+            background-color: #a561f2;
+            box-shadow: 0 10px 10px -10px #a561f2;
         }
 
         #tts button {
-            font-family: "Poppins", sans-serif;
+            font-family: "Manrope", sans-serif;
             width: calc(50% - 20px);
             margin: 10px;
             padding: 15px;
@@ -88,15 +113,17 @@
             cursor: pointer;
             transition: all 0.25s ease;
             outline: none;
-            background-color: #4bbf28;
+            background-color: #f24e24;
         }
 
         #tts button:disabled {
+        	background-color: #ccc;
             cursor: not-allowed;
         }
 
         #tts button:hover:enabled {
-            background-color: #1e8000;
+            background-color: #f7724f;
+            box-shadow: 0 10px 10px -10px #f7724f;
         }
 
         .checkbox-wrapper-28 {
@@ -122,14 +149,34 @@
             width: 1px;
         }
 
-        .checkbox-wrapper-28 input:checked~svg {
+        .checkbox-wrapper-28 svg {
+            stroke: #6e6e6e;
+            stroke-width: 3px;
             height: calc(var(--size) * 0.6);
-            -webkit-animation: draw-checkbox-28 ease-in-out 0.2s forwards;
-            animation: draw-checkbox-28 ease-in-out 0.2s forwards;
+            width: calc(var(--size) * 0.6);
+            position: absolute;
+            left: calc(var(--size) * 0.21);
+            top: calc(var(--size) * 0.2);
+            stroke-dasharray: 33;
+            opacity: 1;
+        }
+
+        .checkbox-wrapper-28 input:checked~svg {
+            -webkit-animation: draw-checkbox-28 ease-in-out 0.25s forwards;
+            animation: draw-checkbox-28 ease-in-out 0.25s forwards;
+        }
+
+        .checkbox-wrapper-28 input:not(:checked)~svg {
+            -webkit-animation: erase-checkbox-28 ease-in-out 0.25s forwards;
+            animation: erase-checkbox-28 ease-in-out 0.25s forwards;
         }
 
         .checkbox-wrapper-28 label:active::after {
             background-color: #e6e6e6;
+        }
+        
+        .checkbox-wrapper-28 label:hover::after {
+            box-shadow: 0 10px 10px -10px #6e6e6e;
         }
 
         .checkbox-wrapper-28 label {
@@ -138,11 +185,8 @@
             cursor: pointer;
             position: relative;
             -webkit-user-select: none;
-            /* Safari */
             -ms-user-select: none;
-            /* IE 10 and IE 11 */
             user-select: none;
-            /* Standard syntax */
         }
 
         .checkbox-wrapper-28 label:after {
@@ -154,17 +198,6 @@
             border: 2px solid #6e6e6e;
             border-radius: 5px;
             transition: 0.15s all ease-out;
-        }
-
-        .checkbox-wrapper-28 svg {
-            stroke: #6e6e6e;
-            stroke-width: 3px;
-            height: 0;
-            width: calc(var(--size) * 0.6);
-            position: absolute;
-            left: calc(var(--size) * 0.21);
-            top: calc(var(--size) * 0.2);
-            stroke-dasharray: 33;
         }
 
         @-webkit-keyframes draw-checkbox-28 {
@@ -186,38 +219,61 @@
                 stroke-dashoffset: 0;
             }
         }
+
+        @-webkit-keyframes erase-checkbox-28 {
+            0% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 33;
+            }
+        }
+
+        @keyframes erase-checkbox-28 {
+            0% {
+                stroke-dashoffset: 0;
+            }
+
+            100% {
+                stroke-dashoffset: 33;
+            }
+        }
+
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Mathemoglyphics Translator</h1>
-        <span style="margin-top: -15px; margin-bottom: 25px; color: gray;">The official language of Alfred and all other math nerds!</span>
-        <div class="translator">
-            <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput()"></textarea>
-            <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput()"></textarea>
-        </div>
-        <div class="translator">
-            <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
-            <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
-        </div>
-        <div id="tts" class="translator">
-            <button id="englishInputSpeak" onclick="tts('englishInputSpeak', 'englishInput')">Read Aloud English</button>
-            <button id="mathInputSpeak" onclick="tts('mathInputSpeak', 'mathInput')">Read Aloud Math</button>
-        </div>
-        <div class="checkbox-wrapper-28">
-            <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" checked />
-            <svg>
-                <use xlink:href="#checkmark-28" />
-            </svg>
-            <label for="tmp-28">
-                Translate Text Automatically
-            </label>
-            <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                <symbol id="checkmark-28" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1"></path>
-                </symbol>
-            </svg>
+	<div class="body-container">
+        <div class="container">
+            <h1>Mathemoglyphics Translator</h1>
+            <span style="margin-top: -15px; margin-bottom: 25px; color: gray;">The official language of Alfred and all other math nerds!</span>
+            <div class="translator">
+                <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput()"></textarea>
+                <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput()"></textarea>
+            </div>
+            <div class="translator">
+                <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
+                <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
+            </div>
+            <div id="tts" class="translator">
+                <button id="englishInputSpeak" onclick="tts('englishInputSpeak', 'englishInput')">Read Aloud English</button>
+                <button id="mathInputSpeak" onclick="tts('mathInputSpeak', 'mathInput')">Read Aloud Math</button>
+            </div>
+            <div class="checkbox-wrapper-28">
+                <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" checked />
+                <svg style="z-index: 99; pointer-events: none;">
+                    <use xlink:href="#checkmark-28" />
+                </svg>
+                <label for="tmp-28">
+                    Translate Text Automatically
+                </label>
+                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                    <symbol id="checkmark-28" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1"></path>
+                    </symbol>
+                </svg>
+            </div>
         </div>
     </div>
 
@@ -282,12 +338,16 @@
             if (document.getElementById("tmp-28").checked) {
                 translateToMath();
             }
+            localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+            localStorage.setItem("mathInput", document.getElementById("mathInput").value);
         }
         
         function handleMathInput() {
             if (document.getElementById("tmp-28").checked) {
                 translateToEnglish();
             }
+            localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+            localStorage.setItem("mathInput", document.getElementById("mathInput").value);
         }
         
         function checkForInput() {
@@ -309,7 +369,6 @@
             document.getElementById("translateToEnglishBtn").disabled = autoTranslateEnabled;
         }
         
-        toggleAutoTranslate();
         let interval;
         
         function startInterval() {
@@ -367,6 +426,12 @@
                 },
             });
         }
+        
+        document.getElementById("englishInput").value = localStorage.getItem("englishInput");
+        document.getElementById("mathInput").value = localStorage.getItem("mathInput");
+        
+        startInterval();
+        toggleAutoTranslate();
         
         console.log(
             '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (a wide space) and "letters" are separated by "\\\\" (two backslashes). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',

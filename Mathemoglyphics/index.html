@@ -424,13 +424,13 @@
                     stopInterval();
                     document.getElementById("englishInputSpeak").disabled = true;
                     document.getElementById("mathInputSpeak").disabled = true;
-                    button.innerHTML = button.innerHTML + " 🕬";
+                    button.innerHTML = button.innerHTML + " 🔊";
                 },
                 onend: function () {
                     startInterval();
                     document.getElementById("englishInputSpeak").disabled = false;
                     document.getElementById("mathInputSpeak").disabled = false;
-                    button.innerHTML = button.innerHTML.replaceAll(" 🕬", "");
+                    button.innerHTML = button.innerHTML.replaceAll(" 🔊", "");
                 },
             });
         }

@@ -194,15 +194,15 @@
             </div>
         </div>
 
-        <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+        <script src="https://code.responsivevoice.org/responsivevoice.js?key=MkGZCXWM"></script>
         <script>
             const englishToMath = {
-                a: "⦝",
-                b: "1010",
+                a: "∠",
+                b: "'1010'",
                 c: "⌈𝑥⌉",
                 d: "𝑑/𝑑𝑥",
                 e: "2.718",
-                f: "⌊𝑥⌋",
+                f: "φ",
                 g: "Γ(𝑥)",
                 h: "'½'",
                 i: "∞",
@@ -275,19 +275,60 @@
             }
 
             toggleAutoTranslate();
-            setInterval(checkForInput, 50);
+            let interval;
+            
+            function startInterval() {
+                interval = setInterval(checkForInput, 50);
+            }
+
+            function stopInterval() {
+                clearInterval(interval);
+            }
 
             function tts(btn, id) {
                 button = document.getElementById(btn);
                 text = document.getElementById(id).value;
-                responsiveVoice.speak(text, "UK English Female", {
+                /* a: "∠",
+                b: "'1010'",
+                c: "⌈𝑥⌉",
+                d: "𝑑/𝑑𝑥",
+                e: "2.718",
+                f: "φ",
+                g: "Γ(𝑥)",
+                h: "'½'",
+                i: "∞",
+                j: "√(-1)",
+                k: "𝑘(𝑥)",
+                l: "𝑙𝑖𝑚",
+                m: "⊿",
+                n: "ℕ",
+                o: "π𝑟²",
+                p: "π",
+                q: "𝑥²",
+                r: "ℝ",
+                s: "Σ",
+                t: "τ",
+                u: "∪",
+                v: "→",
+                w: "𝑊(𝑥)",
+                x: "'𝑥'",
+                y: "𝑚𝑥 + 𝑏",
+                z: "'0'",
+                " ": "　　", */
+                corrected = text.replace(/\\/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of x,").replace(/𝑑\/𝑑𝑥/g, "derivative of x,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of x,").replace(/'½'/g, "one half,").replace(/∞/g, "infinity,").replace(/√\(-1\)/g, "square root of negative one,").replace(/𝑘\(𝑥\)/g, "k of x,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/⊿/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi r squared,").replace(/π/g, "pi").replace(/𝑥²/g, "x squared,").replace(/ℝ/g, "set of real numbers,").replace(/Σ/g, "sigma,").replace(/τ/g, "tau,").replace(/∪/g, "union").replace(/→/g, "vector,").replace(/𝑊\(𝑥\)/g, "lambert w function,").replace(/𝑥/g, "x").replaceAll("𝑚𝑥 + 𝑏", "m x plus b,").replace(/\'0\'/g, "zero");
+                console.warn("\"" + text + "\" is being read as \"" + corrected + "\"");
+                responsiveVoice.speak(corrected, "UK English Female", {
                     onstart: function () {
-                        button.disabled = true;
+                        stopInterval();
+                        document.getElementById("englishInputSpeak").disabled = true;
+                        document.getElementById("mathInputSpeak").disabled = true;
                         button.innerHTML = button.innerHTML + " 🕬";
                     },
                     onend: function () {
-                        button.disabled = false;
-                        button.innerHTML = button.innerHTML.replace(" 🕬", "");
+                        startInterval();
+                        document.getElementById("englishInputSpeak").disabled = false;
+                        document.getElementById("mathInputSpeak").disabled = false;
+                        button.innerHTML = button.innerHTML.replaceAll(" 🕬", "");
                     },
                 });
             }

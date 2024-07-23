@@ -158,7 +158,7 @@
             left: calc(var(--size) * 0.21);
             top: calc(var(--size) * 0.2);
             stroke-dasharray: 33;
-            opacity: 1;
+            opacity: 0;
         }
 
         .checkbox-wrapper-28 input:checked~svg {
@@ -203,40 +203,48 @@
         @-webkit-keyframes draw-checkbox-28 {
             0% {
                 stroke-dashoffset: 33;
+                opacity: 0;
             }
 
             100% {
                 stroke-dashoffset: 0;
+                opacity: 1;
             }
         }
 
         @keyframes draw-checkbox-28 {
             0% {
                 stroke-dashoffset: 33;
+                opacity: 0;
             }
 
             100% {
                 stroke-dashoffset: 0;
+                opacity: 1;
             }
         }
 
         @-webkit-keyframes erase-checkbox-28 {
             0% {
                 stroke-dashoffset: 0;
+                opacity: 1;
             }
 
             100% {
                 stroke-dashoffset: 33;
+                opacity: 0;
             }
         }
 
         @keyframes erase-checkbox-28 {
             0% {
                 stroke-dashoffset: 0;
+                opacity: 1;
             }
 
             100% {
                 stroke-dashoffset: 33;
+                opacity: 0;
             }
         }
 

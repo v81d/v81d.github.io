@@ -68,6 +68,24 @@
         .translator button:hover:enabled {
             background-color: #0056b3;
         }
+        #tts button {
+        	font-family: 'Poppins', sans-serif;
+            width: calc(50% - 20px);
+            margin: 10px;
+            padding: 15px;
+            font-size: 16px;
+            border: none;
+            border-radius: 10px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            outline: none;
+        	background-color: #4bbf28;
+        }
+        #tts button:hover:enabled {
+            background-color: #1e8000;
+        }
         .checkbox-wrapper-28 {
             margin-top: 10px;
             --size: 25px;
@@ -156,15 +174,17 @@
             <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
             <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
         </div>
-        <div class="translator">
-        	<button onclick="tts('englishInput')">Speak English</button>
-            <button onclick="tts('mathInput')">Speak Math</button>
+        <div id="tts" class="translator">
+            <button onclick="tts('englishInput')">Speak English</button>
+            <button onclick="tts('mathInput')">Speak Math (Slow)</button>
         </div>
         <div class="checkbox-wrapper-28">
             <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" checked />
-            <svg><use xlink:href="#checkmark-28" /></svg>
+            <svg>
+                <use xlink:href="#checkmark-28" />
+            </svg>
             <label for="tmp-28">
-                Translate Text Automatically   
+                Translate Text Automatically
             </label>
             <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
                 <symbol id="checkmark-28" viewBox="0 0 24 24">
@@ -174,7 +194,7 @@
         </div>
     </div>
 
-	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+    <script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     <script>
         const englishToMath = {
             'a': 'α',
@@ -242,7 +262,7 @@
         
         function tts(id) {
         	text = document.getElementById(id).value;
-            responsiveVoice.speak(text);
+            responsiveVoice.speak(text, "UK English Female");
         }
         
         console.log("%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by \"　　\" (a wide space) and \"letters\" are separated by \"\\\\\" (two backslashes). Enjoy!", "color: lime; font-size: 20px");

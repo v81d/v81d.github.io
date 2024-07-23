@@ -40,6 +40,7 @@
             height: 200px;
             margin: 10px;
             padding: 15px;
+            padding-right: 40px;
             font-size: 16px;
             border: 1px solid #ccc;
             border-radius: 10px;
@@ -58,6 +59,7 @@
             color: white;
             cursor: pointer;
             transition: all 0.25s ease;
+            outline: none;
         }
         .translator button:disabled {
             background-color: #ccc;
@@ -154,6 +156,10 @@
             <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
             <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
         </div>
+        <div class="translator">
+        	<button onclick="tts('englishInput')">Speak English</button>
+            <button onclick="tts('mathInput')">Speak Math</button>
+        </div>
         <div class="checkbox-wrapper-28">
             <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" checked />
             <svg><use xlink:href="#checkmark-28" /></svg>
@@ -168,6 +174,7 @@
         </div>
     </div>
 
+	<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
     <script>
         const englishToMath = {
             'a': 'α',
@@ -203,12 +210,12 @@
 
         function translateToMath() {
             const englishText = document.getElementById('englishInput').value.toLowerCase();
-            const mathText = englishText.split('').map(char => englishToMath[char] || char).join('\\');
+            const mathText = englishText.split('').map(char => englishToMath[char] || char).join('\\\\');
             document.getElementById('mathInput').value = mathText;
         }
 
         function translateToEnglish() {
-            const mathText = document.getElementById('mathInput').value.split('\\');
+            const mathText = document.getElementById('mathInput').value.split('\\\\');
             const englishText = mathText.map(symbol => mathToEnglish[symbol] || symbol).join('');
             document.getElementById('englishInput').value = englishText;
         }
@@ -233,7 +240,12 @@
         
         toggleAutoTranslate();
         
-        console.log("%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by \"　　\" (a wide space) and \"letters\" are separated by \"\\\" (a backslash). Enjoy!", "color: lime; font-size: 20px");
+        function tts(id) {
+        	text = document.getElementById(id).value;
+            responsiveVoice.speak(text);
+        }
+        
+        console.log("%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by \"　　\" (a wide space) and \"letters\" are separated by \"\\\\\" (two backslashes). Enjoy!", "color: lime; font-size: 20px");
     </script>
 </body>
 

@@ -2,71 +2,70 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>Mathemoglyphics Translator</title>
-    <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
-    <link href="style.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>Mathemoglyphics Translator</title>
+  <link rel="shortcut icon" type="image/x-icon" href="logo.png" />
+  <link href="style.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <script src="script.js"></script>
-    <div class="body-container">
-        <div class="container">
-            <h1>Mathemoglyphics Translator</h1>
-            <span style="margin-top: -15px; margin-bottom: 25px; color: gray;">The official language of Alfred and all other math nerds!</span>
-            <div class="translator">
-                <div class="col">
-                    <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput()"></textarea>
-                    <div class="parent" id="en-p">
-                        <svg onclick="tts('en-g', 'englishInput')" id="englishInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
-                            <g id="en-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
-                                <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
-                                <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
-                                <path d="M5421 5683 c-89 -31 -161 -136 -161 -234 0 -58 22 -107 102 -225 321 -471 479 -984 479 -1554 0 -570 -159 -1088 -478 -1553 -41 -59 -81 -126 -89 -149 -67 -191 125 -381 317 -313 68 24 99 55 186 181 300 440 488 948 548 1484 20 176 20 524 0 700 -50 440 -183 857 -397 1240 -89 159 -223 355 -263 386 -69 52 -161 66 -244 37z" />
-                                <path d="M4711 4973 c-97 -34 -169 -149 -159 -253 5 -51 13 -67 102 -225 286 -506 286 -1144 0 -1650 -31 -55 -66 -117 -77 -139 -47 -89 -27 -206 48 -281 97 -98 253 -98 349 -1 51 51 154 234 218 384 241 569 234 1201 -19 1767 -64 144 -156 301 -204 346 -66 64 -167 84 -258 52z" />
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-                <div class="col">
-                    <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput()"></textarea>
-                    <div class="parent" id="mg-p">
-                        <svg onclick="tts('mg-g', 'mathInput')" id="mathInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
-                            <g id="mg-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
-                                <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
-                                <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
-                                <path d="M5421 5683 c-89 -31 -161 -136 -161 -234 0 -58 22 -107 102 -225 321 -471 479 -984 479 -1554 0 -570 -159 -1088 -478 -1553 -41 -59 -81 -126 -89 -149 -67 -191 125 -381 317 -313 68 24 99 55 186 181 300 440 488 948 548 1484 20 176 20 524 0 700 -50 440 -183 857 -397 1240 -89 159 -223 355 -263 386 -69 52 -161 66 -244 37z" />
-                                <path d="M4711 4973 c-97 -34 -169 -149 -159 -253 5 -51 13 -67 102 -225 286 -506 286 -1144 0 -1650 -31 -55 -66 -117 -77 -139 -47 -89 -27 -206 48 -281 97 -98 253 -98 349 -1 51 51 154 234 218 384 241 569 234 1201 -19 1767 -64 144 -156 301 -204 346 -66 64 -167 84 -258 52z" />
-                            </g>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div class="translator">
-                <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
-                <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
-            </div>
-            <div id="autotranslate" class="checkbox-wrapper-28">
-                <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" />
-                <svg style="z-index: 99; pointer-events: none;">
-                    <use xlink:href="#checkmark-28" />
-                </svg>
-                <label for="tmp-28">
-                    Translate Text Automatically
-                </label>
-                <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-                    <symbol id="checkmark-28" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1"></path>
-                    </symbol>
-                </svg>
-            </div>
+  <div class="body-container">
+    <div class="container">
+      <h1>Mathemoglyphics Translator</h1>
+      <span style="margin-top: -15px; margin-bottom: 25px; color: gray;">The official language of Alfred and all other math nerds!</span>
+      <div class="translator">
+        <div class="col">
+          <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput()"></textarea>
+          <div class="parent" id="en-p">
+            <svg onclick="tts('en-g', 'englishInput')" id="englishInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
+              <g id="en-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
+                <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
+                <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
+                <path d="M5421 5683 c-89 -31 -161 -136 -161 -234 0 -58 22 -107 102 -225 321 -471 479 -984 479 -1554 0 -570 -159 -1088 -478 -1553 -41 -59 -81 -126 -89 -149 -67 -191 125 -381 317 -313 68 24 99 55 186 181 300 440 488 948 548 1484 20 176 20 524 0 700 -50 440 -183 857 -397 1240 -89 159 -223 355 -263 386 -69 52 -161 66 -244 37z" />
+                <path d="M4711 4973 c-97 -34 -169 -149 -159 -253 5 -51 13 -67 102 -225 286 -506 286 -1144 0 -1650 -31 -55 -66 -117 -77 -139 -47 -89 -27 -206 48 -281 97 -98 253 -98 349 -1 51 51 154 234 218 384 241 569 234 1201 -19 1767 -64 144 -156 301 -204 346 -66 64 -167 84 -258 52z" />
+              </g>
+            </svg>
+          </div>
         </div>
+        <div class="col">
+          <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput()"></textarea>
+          <div class="parent" id="mg-p">
+            <svg onclick="tts('mg-g', 'mathInput')" id="mathInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
+              <g id="mg-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
+                <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
+                <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
+                <path d="M5421 5683 c-89 -31 -161 -136 -161 -234 0 -58 22 -107 102 -225 321 -471 479 -984 479 -1554 0 -570 -159 -1088 -478 -1553 -41 -59 -81 -126 -89 -149 -67 -191 125 -381 317 -313 68 24 99 55 186 181 300 440 488 948 548 1484 20 176 20 524 0 700 -50 440 -183 857 -397 1240 -89 159 -223 355 -263 386 -69 52 -161 66 -244 37z" />
+                <path d="M4711 4973 c-97 -34 -169 -149 -159 -253 5 -51 13 -67 102 -225 286 -506 286 -1144 0 -1650 -31 -55 -66 -117 -77 -139 -47 -89 -27 -206 48 -281 97 -98 253 -98 349 -1 51 51 154 234 218 384 241 569 234 1201 -19 1767 -64 144 -156 301 -204 346 -66 64 -167 84 -258 52z" />
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="translator">
+        <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
+        <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
+      </div>
+      <div id="autotranslate" class="checkbox-wrapper-28">
+        <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" />
+        <svg style="z-index: 99; pointer-events: none;">
+          <use xlink:href="#checkmark-28" />
+        </svg>
+        <label for="tmp-28">Translate Text Automatically
+        </label>
+        <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+          <symbol id="checkmark-28" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-miterlimit="10" fill="none" d="M22.9 3.7l-15.2 16.6-6.6-7.1"></path>
+          </symbol>
+        </svg>
+      </div>
     </div>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=tkHmro1j"></script>
+  </div>
+  <script src="script.js"></script>
+  <script src="https://code.responsivevoice.org/responsivevoice.js?key=tkHmro1j"></script>
 </body>
 
 </html>

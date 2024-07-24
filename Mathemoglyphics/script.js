@@ -163,7 +163,7 @@ function tts(btn, id) {
       document.querySelector("#mg-p").style.cursor = "not-allowed";
     },
     onerror: function() {
-      alert("Sorry! There was an error reading the text.");
+      console.error("Uh oh! The server has encountered an error while trying to read aloud the content.");
       document.querySelector("#en-g").style.fill = "#ccc";
       document.querySelector("#mg-g").style.fill = "#ccc";
       document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";

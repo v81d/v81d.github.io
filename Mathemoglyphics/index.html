@@ -324,9 +324,9 @@
             z: "'0'",
             " ": "　　"
         };
-
+        
         const mathToEnglish = Object.fromEntries(Object.entries(englishToMath).map(([k, v]) => [v, k]));
-
+        
         function translateToMath() {
             const englishText = document.getElementById("englishInput").value;
             const words = englishText.split(" ");
@@ -346,7 +346,7 @@
                 document.getElementById("mathInput").value = mathText;
             }
         }
-
+        
         function translateToEnglish() {
             const mathText = document.getElementById("mathInput").value.split("　　");
             const englishText = mathText.map((symbol) => {
@@ -449,12 +449,12 @@
             y: "𝑚𝑥 + 𝑏",
             z: "'0'",
             " ": "　　" */
-            corrected = replaceLast(text.replace(/\{ /g, "").replace(/ \}/g, "").replace(/\|/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of x,").replace(/𝑑\/𝑑𝑥/g, "derivative of x,").replace(/2.718…/g, "Euler's number,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of x,").replace(/'½'/g, "one half,").replace(/√\(-1\)/g, "square root of negative one,").replace(/⊷/g, "jump discontinuity,").replace(/𝑘\(𝑥\)/g, "k of x,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/Δ/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi R squared,").replace(/π/g, "pi,").replace(/𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, "quadratic,").replace(/→/g, "ray,").replace(/Σ/g, "sigma,").replace(/τ/g, "tao,").replace(/∪/g, "union,").replace(/┋/g, "vertical line,").replace(/𝑊\(𝑥\)/g, "Lambert W function,").replace(/\'𝑥\'/g, "x,").replace(/𝑚𝑥 \+ 𝑏/g, "m x plus b,").replace(/\'0\'/g, "zero,").replace(/   /g, " ").replace(/　　/g, ". ").replace(/\((.*?)\)\*/g, function(match, p1) {
+            corrected = replaceLast(text.replace(/\{ /g, "").replace(/ \}/g, "").replace(/\|/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of X,").replace(/𝑑\/𝑑𝑥/g, "derivative of X,").replace(/2.718…/g, "Euler's number,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of X,").replace(/'½'/g, "one half,").replace(/√\(-1\)/g, "square root of negative one,").replace(/⊷/g, "jump discontinuity,").replace(/𝑘\(𝑥\)/g, "K of X,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/Δ/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi R squared,").replace(/π/g, "pi,").replace(/𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, "quadratic,").replace(/→/g, "ray,").replace(/Σ/g, "sigma,").replace(/τ/g, "tau,").replace(/∪/g, "union,").replace(/┋/g, "vertical line,").replace(/𝑊\(𝑥\)/g, "Lambert W function,").replace(/\'𝑥\'/g, "x,").replace(/𝑚𝑥 \+ 𝑏/g, "M X plus B,").replace(/\'0\'/g, "zero,").replace(/   /g, " ").replace(/　　/g, ". ").replace(/\((.*?)\)\*/g, function(match, p1) {
         		return p1.toUpperCase();
-    		}).replace(/0/g, " 0"), ",", ".");
+            		}).replace(/0/g, "zero"), ",", ".");
             corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
-            console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
-            responsiveVoice.speak(corrected, "UK English Female", {
+            console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");          
+            responsiveVoice.speak(corrected, "UK English Male", {
                 onstart: function () {
                     stopInterval();
                     document.getElementById("englishInputSpeak").disabled = true;
@@ -466,7 +466,7 @@
                     document.getElementById("englishInputSpeak").disabled = false;
                     document.getElementById("mathInputSpeak").disabled = false;
                     button.innerHTML = button.innerHTML.replaceAll(" 🔊", "");
-                },
+                }
             });
         }
         
@@ -481,7 +481,7 @@
             "background-image: linear-gradient(to top, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; color: transparent; font-size: 20px;"
         );
     </script>
-    <script src="https://code.responsivevoice.org/responsivevoice.js?key=MkGZCXWM"></script>
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=tkHmro1j"></script>
 </body>
 
 </html>

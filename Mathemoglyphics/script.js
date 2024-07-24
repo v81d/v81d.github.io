@@ -82,8 +82,6 @@ function handleEnglishInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function handleMathInput() {
@@ -97,8 +95,6 @@ function handleMathInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function checkForInput() {
@@ -120,6 +116,8 @@ function checkForInput() {
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
@@ -166,7 +164,6 @@ function tts(btn, id) {
   try {
     responsiveVoice.speak(corrected, "UK English Male", {
       onstart: function() {
-        console.log("Speech started.");
         document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
         document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
         document.querySelector("#" + btn).style.fill = "#8f36f5";
@@ -184,7 +181,6 @@ function tts(btn, id) {
         checkForInput();
       },
       onend: function() {
-        console.log("Speech ended.");
         document.querySelector("#en-g").style.fill = "#ccc";
         document.querySelector("#mg-g").style.fill = "#ccc";
         document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";

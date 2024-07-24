@@ -99,20 +99,24 @@ function handleMathInput() {
 
 function checkForInput() {
   if (document.getElementById("englishInput").value.length == 0) {
+    console.log("Log: 1");
     document.querySelector("#en-p").style.cursor = "not-allowed";
     document.getElementById("englishInputSpeak").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   } else {
-    document.querySelector("#en-p").style.cursor = "pointer";
+    console.log("Log: 2");
+    document.querySelector(".pointer").style.cursor = "pointer";
     document.getElementById("englishInputSpeak").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
   if (document.getElementById("mathInput").value.length == 0) {
+    console.log("Log: 3");
     document.querySelector("#mg-p").style.cursor = "not-allowed";
     document.getElementById("mathInputSpeak").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   } else {
-    document.querySelector("#mg-p").style.cursor = "pointer";
+    console.log("Log: 4");
+    document.querySelector(".pointer").style.cursor = "pointer";
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }

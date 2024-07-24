@@ -156,13 +156,13 @@ function tts(btn, id) {
     responsiveVoice.speak(corrected, "UK English Male", {
         onerror: function() {
             alert("Sorry! There was an error reading the text.");
-            checkForInput();
             document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#en-g").style.fill = "#ccc";
             document.querySelector("#mg-g").style.fill = "#ccc";
             document.querySelector("#en-p").style.cursor = "pointer";
             document.querySelector("#mg-p").style.cursor = "pointer";
+            checkForInput();
         },
         onstart: function() {
             document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
@@ -172,13 +172,13 @@ function tts(btn, id) {
             document.querySelector("#mg-p").style.cursor = "not-allowed";
         },
         onend: function() {
-            checkForInput();
             document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#en-g").style.fill = "#ccc";
             document.querySelector("#mg-g").style.fill = "#ccc";
             document.querySelector("#en-p").style.cursor = "pointer";
             document.querySelector("#mg-p").style.cursor = "pointer";
+            checkForInput();
         }
     });
 }

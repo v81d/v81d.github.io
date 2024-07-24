@@ -1,5 +1,3 @@
-// Language & Code by 0201._
-
 const englishToMath = {
   a: "∠",
   b: "'1010'",
@@ -157,6 +155,13 @@ function tts(btn, id) {
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
   responsiveVoice.speak(corrected, "UK English Male", {
+    onstart: function() {
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#" + btn).style.fill = "#8f36f5";
+      document.querySelector("#en-p").style.cursor = "not-allowed";
+      document.querySelector("#mg-p").style.cursor = "not-allowed";
+    },
     onerror: function() {
       alert("Sorry! There was an error reading the text.");
       document.querySelector("#en-g").style.fill = "#ccc";
@@ -166,13 +171,6 @@ function tts(btn, id) {
       document.querySelector("#en-p").style.cursor = "pointer";
       document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();
-    },
-    onstart: function() {
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
-      document.querySelector("#" + btn).style.fill = "#8f36f5";
-      document.querySelector("#en-p").style.cursor = "not-allowed";
-      document.querySelector("#mg-p").style.cursor = "not-allowed";
     },
     onend: function() {
       document.querySelector("#en-g").style.fill = "#ccc";
@@ -193,5 +191,5 @@ checkForInput();
 
 console.log(
   '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (a wide space) and "letters" are separated by "\\\\" (two backslashes). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',
-  "background-image: linear-gradient(to top, violet, indigo, blue, green, yellow, orange, red); -webkit-background-clip: text; color: transparent; font-size: 18px;"
+  "background-image: linear-gradient(to bottom, #ff931a, #ff999b); -webkit-background-clip: text; color: transparent; font-size: 18px;"
 );

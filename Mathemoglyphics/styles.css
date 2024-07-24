@@ -37,6 +37,11 @@ body {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
 }
 
+.container h1 {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
 .translator {
   display: flex;
   align-items: center;
@@ -128,8 +133,8 @@ body {
 }
 
 .checkbox-wrapper-28 {
-  margin-top: 21.44px;
-  margin-bottom: 21.44px;
+  margin-top: 10px;
+  margin-bottom: 30px;
   --size: 25px;
   position: relative;
 }

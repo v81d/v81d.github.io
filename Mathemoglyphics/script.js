@@ -48,6 +48,8 @@ function translateToMath() {
   } else {
     document.getElementById("mathInput").value = mathText;
   }
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function translateToEnglish() {
@@ -63,6 +65,8 @@ function translateToEnglish() {
     return translatedWord;
   }).join(" ");
   document.getElementById("englishInput").value = englishText;
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function handleEnglishInput() {
@@ -76,8 +80,6 @@ function handleEnglishInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function handleMathInput() {
@@ -91,8 +93,6 @@ function handleMathInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function checkForInput() {

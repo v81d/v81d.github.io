@@ -116,6 +116,9 @@ function checkForInput() {
   }
 }
 
+document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
+document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
+
 document.getElementById("englishInput").addEventListener("input", checkForInput);
 document.getElementById("mathInput").addEventListener("input", checkForInput);
 

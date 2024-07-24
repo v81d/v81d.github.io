@@ -166,6 +166,7 @@ function tts(btn, id) {
   try {
     responsiveVoice.speak(corrected, "UK English Male", {
       onstart: function() {
+        console.log("Speech started.");
         document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
         document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
         document.querySelector("#" + btn).style.fill = "#8f36f5";
@@ -173,7 +174,7 @@ function tts(btn, id) {
         document.querySelector("#mg-p").style.cursor = "not-allowed";
       },
       onerror: function() {
-        console.error("Uh oh! An error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
+        console.error("An error occurred while trying to synthesize the speech.");
         document.querySelector("#en-g").style.fill = "#ccc";
         document.querySelector("#mg-g").style.fill = "#ccc";
         document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
@@ -183,6 +184,7 @@ function tts(btn, id) {
         checkForInput();
       },
       onend: function() {
+        console.log("Speech ended.");
         document.querySelector("#en-g").style.fill = "#ccc";
         document.querySelector("#mg-g").style.fill = "#ccc";
         document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";

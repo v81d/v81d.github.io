@@ -1,5 +1,3 @@
-// Mathemoglyphics: Language and Translator by 0201._
-
 const englishToMath = {
   a: "∠",
   b: "'1010'",
@@ -68,7 +66,6 @@ function translateToEnglish() {
 }
 
 function handleEnglishInput() {
-  checkForInput();
   if (document.getElementById("tmp-28").checked) {
     translateToMath();
   }
@@ -81,7 +78,6 @@ function handleEnglishInput() {
   document.querySelector("#mg-p").style.cursor = "pointer";
   localStorage.setItem("englishInput", document.getElementById("englishInput").value);
   localStorage.setItem("mathInput", document.getElementById("mathInput").value);
-  checkForInput();
 }
 
 function handleMathInput() {
@@ -97,7 +93,6 @@ function handleMathInput() {
   document.querySelector("#mg-p").style.cursor = "pointer";
   localStorage.setItem("englishInput", document.getElementById("englishInput").value);
   localStorage.setItem("mathInput", document.getElementById("mathInput").value);
-  checkForInput();
 }
 
 function checkForInput() {
@@ -106,7 +101,7 @@ function checkForInput() {
     document.getElementById("englishInputSpeak").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   } else {
-    document.querySelector("#.parent").style.cursor = "pointer";
+    document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("englishInputSpeak").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
@@ -115,11 +110,14 @@ function checkForInput() {
     document.getElementById("mathInputSpeak").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   } else {
-    document.querySelector("#.parent").style.cursor = "pointer";
+    document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }
 }
+
+document.getElementById("englishInput").addEventListener("input", checkForInput);
+document.getElementById("mathInput").addEventListener("input", checkForInput);
 
 function toggleAutoTranslate() {
   const autoTranslateEnabled = document.getElementById("tmp-28").checked;
@@ -159,10 +157,10 @@ function tts(btn, id) {
   responsiveVoice.speak(corrected, "UK English Male", {
     onerror: function() {
       alert("Sorry! There was an error reading the text.");
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
       document.querySelector("#en-g").style.fill = "#ccc";
       document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
       document.querySelector("#en-p").style.cursor = "pointer";
       document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();
@@ -175,10 +173,10 @@ function tts(btn, id) {
       document.querySelector("#mg-p").style.cursor = "not-allowed";
     },
     onend: function() {
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
       document.querySelector("#en-g").style.fill = "#ccc";
       document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
       document.querySelector("#en-p").style.cursor = "pointer";
       document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();

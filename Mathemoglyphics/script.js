@@ -82,6 +82,8 @@ function handleEnglishInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function handleMathInput() {
@@ -95,6 +97,8 @@ function handleMathInput() {
   document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
   document.querySelector("#en-p").style.cursor = "pointer";
   document.querySelector("#mg-p").style.cursor = "pointer";
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
 function checkForInput() {
@@ -190,7 +194,6 @@ function tts(btn, id) {
     });
   } catch (err) {
     console.error("An error occurred with ResponsiveVoice: ", err);
-    alert("Uh oh! An error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
     document.querySelector("#en-g").style.fill = "#ccc";
     document.querySelector("#mg-g").style.fill = "#ccc";
     document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";

@@ -1,3 +1,5 @@
+// Language & Code by 0201._
+
 const englishToMath = {
   a: "∠",
   b: "'1010'",

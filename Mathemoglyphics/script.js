@@ -103,23 +103,18 @@ function checkForInput() {
         document.getElementById("englishInputSpeak").classList.remove("speak-hover");
         document.getElementById("englishInputSpeak").style.pointerEvents = "none";
     } else {
-        if (!responsiveVoice.isPlaying()) {
-            document.querySelector(".parent").style.cursor = "pointer";
-            document.getElementById("englishInputSpeak").classList.add("speak-hover");
-            document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
-        }
+        document.querySelector(".parent").style.cursor = "pointer";
+        document.getElementById("englishInputSpeak").classList.add("speak-hover");
+        document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
     }
     if (document.getElementById("mathInput").value.length == 0) {
         document.querySelector("#mg-p").style.cursor = "not-allowed";
         document.getElementById("mathInputSpeak").classList.remove("speak-hover");
         document.getElementById("mathInputSpeak").style.pointerEvents = "none";
     } else {
-        if (!responsiveVoice.isPlaying()) {
-            document.querySelector(".parent").style.cursor = "pointer";
-            document.getElementById("mathInputSpeak").classList.add("speak-hover");
-            document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
-        }
-
+        document.querySelector(".parent").style.cursor = "pointer";
+        document.getElementById("mathInputSpeak").classList.add("speak-hover");
+        document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
     }
 }
 
@@ -161,6 +156,7 @@ function tts(btn, id) {
     responsiveVoice.speak(corrected, "UK English Male", {
         onerror: function() {
             alert("Sorry! There was an error reading the text.");
+            checkForInput();
             document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#en-g").style.fill = "#ccc";
@@ -176,6 +172,7 @@ function tts(btn, id) {
             document.querySelector("#mg-p").style.cursor = "not-allowed";
         },
         onend: function() {
+            checkForInput();
             document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
             document.querySelector("#en-g").style.fill = "#ccc";

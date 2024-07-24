@@ -8,10 +8,8 @@ body {
   padding: 50px;
   z-index: -99;
   background-image: url("bg.jpg");
-  -webkit-backdrop-filter: blur(4px);
-  /* Use for Safari 9+, Edge 17+ (not a mistake) and iOS Safari 9.2+ */
-  backdrop-filter: blur(4px);
-  /* Supported on all major browsers */
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
   background-size: fill;
   margin: 0;
   zoom: 90%;
@@ -130,7 +128,8 @@ body {
 }
 
 .checkbox-wrapper-28 {
-  margin-top: 10px;
+  margin-top: 21.44px;
+  margin-bottom: 21.44px;
   --size: 25px;
   position: relative;
 }

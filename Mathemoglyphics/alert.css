@@ -50,13 +50,13 @@
 #dialogoverlay {
   display: none;
   opacity: 0.8;
-  position: fixed;
-  top: 0px;
-  left: 0px;
+  position: fixed; /* Ensure it's fixed to the viewport */
+  top: 0; /* Start from the very top */
+  left: 0; /* Start from the very left */
+  width: 100%; /* Cover full width */
+  height: 100%; /* Cover full height */
   background: #707070;
-  width: 100%;
-  z-index: 999999;
-  height: 100%;
+  z-index: 999999; /* Make sure it is above other elements */
 }
 
 #dialogbox {

@@ -239,7 +239,7 @@
 #dialogbox > div > #dialogboxhead {
   background: rgb(70, 0, 117);
   font-size: 19px;
-  padding: 10px;
+  padding: 10px 20px;
   color: rgb(255, 255, 255);
   font-family: "Manrope", sans-serif;
 }

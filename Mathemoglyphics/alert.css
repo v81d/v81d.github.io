@@ -56,7 +56,7 @@
   align-items: center;
   margin: -50px;
   opacity: 0.4;
-  background: #707070
+  background: #707070;
   backdrop-filter: blur(20px);
   z-index: 999999; /* Make sure it is above other elements */
 }

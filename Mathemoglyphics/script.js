@@ -161,45 +161,34 @@ function tts(btn, id) {
   }).replace(/0/g, "zero"), ",", ".");
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
-  try {
-    responsiveVoice.speak(corrected, "UK English Female", {
-      onstart: function() {
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
-        document.querySelector("#" + btn).style.fill = "#8f36f5";
-        document.querySelector("#en-p").style.cursor = "not-allowed";
-        document.querySelector("#mg-p").style.cursor = "not-allowed";
-      },
-      onerror: function() {
-        console.error("An error occurred while trying to synthesize the speech.");
-        document.querySelector("#en-g").style.fill = "#ccc";
-        document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
-        checkForInput();
-      },
-      onend: function() {
-        document.querySelector("#en-g").style.fill = "#ccc";
-        document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
-        checkForInput();
-      }
-    });
-  } catch (err) {
-    console.error("An error occurred with ResponsiveVoice: ", err);
-    document.querySelector("#en-g").style.fill = "#ccc";
-    document.querySelector("#mg-g").style.fill = "#ccc";
-    document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-    document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-    document.querySelector("#en-p").style.cursor = "pointer";
-    document.querySelector("#mg-p").style.cursor = "pointer";
-    checkForInput();
-  }
+  responsiveVoice.speak(corrected, "UK English Male", {
+    onstart: function() {
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#" + btn).style.fill = "#8f36f5";
+      document.querySelector("#en-p").style.cursor = "not-allowed";
+      document.querySelector("#mg-p").style.cursor = "not-allowed";
+    },
+    onerror: function() {
+      console.error("An error occurred while trying to synthesize the speech.");
+      document.querySelector("#en-g").style.fill = "#ccc";
+      document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#en-p").style.cursor = "pointer";
+      document.querySelector("#mg-p").style.cursor = "pointer";
+      checkForInput();
+    },
+    onend: function() {
+      document.querySelector("#en-g").style.fill = "#ccc";
+      document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#en-p").style.cursor = "pointer";
+      document.querySelector("#mg-p").style.cursor = "pointer";
+      checkForInput();
+    }
+  });
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);

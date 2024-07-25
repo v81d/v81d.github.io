@@ -120,23 +120,23 @@ function handleMathInput() {
 function checkForInput() {
   if (document.getElementById("englishInput").value.length == 0) {
     document.querySelector("#en-p").style.cursor = "not-allowed";
-    document.getElementById("#en-p").classList.remove("speak-hover");
-    document.getElementById("#en-p").style.pointerEvents = "none";
+    document.getElementById("en-p").classList.remove("speak-hover");
+    document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   }
   else if (document.getElementById("englishInput").value.length != 0) {
     document.querySelector("#en-p").style.cursor = "pointer";
-    document.getElementById("#en-p").classList.add("speak-hover");
-    document.getElementById("#en-p").style.pointerEvents = "auto";
+    document.getElementById("en-p").classList.add("speak-hover");
+    document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
   if (document.getElementById("mathInput").value.length == 0) {
     document.querySelector("#mg-p").style.cursor = "not-allowed";
-    document.getElementById("#mg-p").classList.remove("speak-hover");
-    document.getElementById("#mg-p").style.pointerEvents = "none";
+    document.getElementById("mg-p").classList.remove("speak-hover");
+    document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   }
   else if (document.getElementById("mathInput").value.length != 0) {
     document.querySelector("#mg-p").style.cursor = "pointer";
-    document.getElementById("#mg-p").classList.add("speak-hover");
-    document.getElementById("#mg-p").style.pointerEvents = "auto";
+    document.getElementById("mg-p").classList.add("speak-hover");
+    document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }
   localStorage.setItem("englishInput", document.getElementById("englishInput").value);
   localStorage.setItem("mathInput", document.getElementById("mathInput").value);

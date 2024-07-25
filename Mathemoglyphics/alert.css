@@ -50,11 +50,11 @@
 #dialogoverlay {
   position: fixed;
   display: none;
-  width: 100vw;
-  height: 100vh;
+  width: 100vw !important;
+  height: 100vh !important;
   justify-content: center;
   align-items: center;
-  margin: 0;
+  margin: 0 !important;
   opacity: 0.4;
   backdrop-filter: blur(12px);
   background-color: #707070;
@@ -64,6 +64,8 @@
 #dialogbox {
   display: none;
   position: fixed;
+  align-self: center !important;
+  justify-self: center !important;
   background: rgb(60, 0, 99);
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);

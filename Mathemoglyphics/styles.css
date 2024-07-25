@@ -4,8 +4,8 @@ body {
   font-family: "Manrope", sans-serif;
   display: flex;
   top: 0;
-  left: 0;
-  height: 100%;
+  width: 100vw;
+  height: 100vw;
   position: relative;
   justify-content: center;
   align-items: center;
@@ -17,6 +17,10 @@ body {
   background-size: fill;
   margin: 0;
   zoom: 90%;
+}
+
+body::-webkit-scrollbar {
+  display: none;
 }
 
 .body-container {

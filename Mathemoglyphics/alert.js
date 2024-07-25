@@ -16,6 +16,7 @@ function CustomAlert() {
       // Create dialog box
       dialogbox = document.createElement('div');
       dialogbox.id = 'dialogbox';
+      dialogbox.className = 'slit-in-vertical'; // Add animation class
 
       // Add content structure
       dialogbox.innerHTML = `
@@ -28,15 +29,16 @@ function CustomAlert() {
       document.body.appendChild(dialogbox);
     }
 
-    // Ensure the dialog box is visible
-    dialogbox.classList.add('slit-in-vertical');
-    dialogbox.style.display = 'block';
-
-    // Show the overlay with opacity transition
+    // Show the overlay and dialog box
     dialogoverlay.style.display = 'block';
     setTimeout(() => {
       dialogoverlay.style.opacity = '1'; // Trigger opacity transition
-    }, 10); // Small delay to ensure transition takes effect
+    }, 10);
+
+    // Ensure dialog box is visible and plays the animation
+    dialogbox.style.display = 'block';
+    dialogbox.classList.remove('slit-out-vertical'); // Ensure no reverse animation class
+    dialogbox.classList.add('slit-in-vertical'); // Add the slit-in animation
 
     // Set dialog box content
     const dialogboxhead = document.getElementById('dialogboxhead');
@@ -60,13 +62,17 @@ function CustomAlert() {
     const dialogoverlay = document.getElementById('dialogoverlay');
     const dialogbox = document.getElementById('dialogbox');
 
+    // Play reverse animation
+    dialogbox.classList.remove('slit-in-vertical');
+    dialogbox.classList.add('slit-out-vertical');
+    
+    // Hide overlay and dialog box after animation ends
     dialogoverlay.style.opacity = '0'; // Start opacity transition
-    dialogoverlay.classList.remove('slit-in-vertical'); // Start opacity transition
 
     setTimeout(() => {
       dialogoverlay.style.display = 'none';
-      dialogbox.style.display = 'none';
-    }, 450); // Match the duration of the opacity transition
+      dialogbox.style.display = 'none'; // Ensure the dialog box is hidden
+    }, 450); // Match the duration of the animation
   }
 }
 

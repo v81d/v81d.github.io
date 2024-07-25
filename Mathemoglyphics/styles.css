@@ -1,6 +1,5 @@
 /* Language & Code by 0201._ */
 
-/* Ensures the box model includes padding and border in the element's total size */
 *,
 *::before,
 *::after {

@@ -122,8 +122,7 @@ function checkForInput() {
     document.querySelector("#en-p").style.cursor = "not-allowed";
     document.getElementById("en-p").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
-  }
-  else if (document.getElementById("englishInput").value.length != 0) {
+  } else {
     document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("en-p").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
@@ -132,8 +131,7 @@ function checkForInput() {
     document.querySelector("#mg-p").style.cursor = "not-allowed";
     document.getElementById("mg-p").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
-  }
-  else if (document.getElementById("mathInput").value.length != 0) {
+  } else {
     document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mg-p").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";

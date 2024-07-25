@@ -48,12 +48,12 @@
   }
 }
 
-/*---------------#region Alert--------------- */
+/*---------------Alert--------------- */
 
 #dialogoverlay {
   display: none;
+  position: fixed;
   height: 100%;
-  opacity: 1;
   backdrop-filter: blur(20px);
   z-index: 999999; /* Make sure it is above other elements */
 }

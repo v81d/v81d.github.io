@@ -7,6 +7,17 @@
   animation: slit-in-vertical 0.45s ease-out both;
 }
 
+.opacity-animation {
+  transition: opacity 0.45s ease;
+}
+
+#dialogbox:not(.slit-in-vertical) {
+  -webkit-animation: slit-in-vertical 0.45s ease-out both;
+  animation: slit-in-vertical 0.45s ease-out both;
+  -webkit-animation-direction: backwards;
+  animation-direction: backwards;
+}
+
 @-webkit-keyframes slit-in-vertical {
   0% {
     -webkit-transform: translateZ(-800px) rotateY(90deg);

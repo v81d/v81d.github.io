@@ -8,7 +8,7 @@ function CustomAlert() {
       // Create overlay
       dialogoverlay = document.createElement('div');
       dialogoverlay.id = 'dialogoverlay';
-      dialogoverlay.className = 'opacityAnimation';
+      dialogoverlay.className = 'opacity-animation';
       dialogoverlay.style.opacity = '0';
       document.body.appendChild(dialogoverlay);
     }

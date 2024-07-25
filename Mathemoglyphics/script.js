@@ -183,7 +183,7 @@ function tts(btn, id) {
       document.querySelector("#" + btn).style.fill = "#8f36f5";
       document.querySelector("#en-p").style.cursor = "not-allowed";
       document.querySelector("#mg-p").style.cursor = "not-allowed";
-      console.log("Speech synthesis started!");
+      console.log("Speech synthesis started.");
     };
 
     // Event handler when speech synthesis ends
@@ -195,7 +195,7 @@ function tts(btn, id) {
       document.querySelector("#en-p").style.cursor = "pointer";
       document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();
-      console.log("Speech synthesis ended!");
+      console.log("Speech synthesis ended.");
     };
 
     speechSynthesis.speak(utterance);

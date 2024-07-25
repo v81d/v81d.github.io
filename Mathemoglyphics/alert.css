@@ -50,7 +50,7 @@
 /*---------------Alert--------------- */
 
 #dialogoverlay {
-  display: none;
+  display: block;
   position: fixed;
   height: 100%;
   backdrop-filter: blur(20px);

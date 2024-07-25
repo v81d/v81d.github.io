@@ -67,7 +67,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: 0.3s;
   width: 40%;
-  z-index: 10;
+  z-index: 1000000;
   top: 0;
   left: 0;
   right: 0;

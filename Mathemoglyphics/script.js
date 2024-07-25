@@ -174,7 +174,7 @@ function tts(btn, id) {
   if (window.navigator.userAgent.includes("Edge") || window.navigator.userAgent.includes("Edg")) {
     // Use SpeechSynthesis for Microsoft Edge
     const utterance = new SpeechSynthesisUtterance(corrected);
-    utterance.lang = langSelect.value; // Set language (e.g., "en-US")
+    utterance.lang = "en-US";
     utterance.volume = parseFloat(volumeRange.value);
     utterance.rate = parseFloat(rateRange.value);
     utterance.pitch = parseFloat(pitchRange.value);

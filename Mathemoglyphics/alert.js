@@ -13,7 +13,7 @@ function CustomAlert() {
     if (typeof title === 'undefined') {
       document.getElementById('dialogboxhead').style.display = 'none';
     } else {
-      document.getElementById('dialogboxhead').innerHTML = '<i class="fa fa-exclamation-circle" aria-hidden="true"></i> ' + title;
+      document.getElementById('dialogboxhead').innerHTML = 'ⓘ\xA0 ' + title;
     }
     document.getElementById('dialogboxbody').innerHTML = message;
     document.getElementById('dialogboxfoot').innerHTML = '<button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>';

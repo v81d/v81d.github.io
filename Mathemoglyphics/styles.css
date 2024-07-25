@@ -4,7 +4,7 @@ body {
   font-family: "Manrope", sans-serif;
   display: flex;
   top: 0;
-  width: 100%;
+  left: 0;
   height: 100%;
   position: relative;
   justify-content: center;

@@ -61,7 +61,7 @@
 #dialogbox {
   display: none;
   position: absolute;
-  background: rgb(0, 47, 43);
+  background: rgb(60, 0, 99);
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
   transition: 0.3s;
@@ -95,10 +95,9 @@
   text-overflow: ellipsis;
   text-transform: uppercase;
   color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
-  background-color: rgb(var(--pure-material-primary-rgb, 0, 77, 70));
-  /* background-color: rgb(1, 47, 61) */
+  background-color: rgb(var(--pure-material-primary-rgb, 70, 0, 117));
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  font-family: var(--pure-material-font, "Roboto", "Segoe UI", BlinkMacSystemFont, system-ui, -apple-system);
+  font-family: "Manrope", sans-serif;
   font-size: 14px;
   font-weight: 500;
   line-height: 36px;
@@ -195,24 +194,22 @@
 }
 
 #dialogbox>div>#dialogboxhead {
-  background: rgb(0, 77, 70);
+  background: rgb(70, 0, 117);
   font-size: 19px;
   padding: 10px;
   color: rgb(255, 255, 255);
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 #dialogbox>div>#dialogboxbody {
-  background: rgb(0, 47, 43);
+  background: rgb(60, 0, 99);
   padding: 20px;
   color: #FFF;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-family: "Manrope", sans-serif;
 }
 
 #dialogbox>div>#dialogboxfoot {
-  background: rgb(0, 47, 43);
+  background: rgb(60, 0, 99);
   padding: 10px;
   text-align: right;
 }
-
-/*#endregion Alert*/

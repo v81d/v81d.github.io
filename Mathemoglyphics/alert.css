@@ -56,7 +56,7 @@
   background-color: black;
   opacity: 0.4;
   backdrop-filter: blur(20px);
-  z-index: 999999; /* Make sure it is above other elements */
+  z-index: 99999; /* Make sure it is above other elements */
 }
 
 #dialogbox {
@@ -69,7 +69,7 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: all 0.8s ease;
   width: 40%;
-  z-index: 1000000; /* Ensure it’s above the overlay */
+  z-index: 100000; /* Ensure it’s above the overlay */
   margin: auto;
 }
 

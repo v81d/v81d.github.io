@@ -1,18 +1,24 @@
 /* Language & Code by 0201._ */
 
+/* Ensures the box model includes padding and border in the element's total size */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: "Manrope", sans-serif;
   display: flex;
-  margin: 0;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 50px;
   background: url("bg.jpg") no-repeat center center fixed;
   background-size: cover;
   -webkit-backdrop-filter: blur(8px);

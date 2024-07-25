@@ -1,6 +1,6 @@
 function CustomAlert() {
   this.alert = function(message, title) {
-    document.body.innerHTML = document.body.innerHTML + '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>';
+    document.body.innerHTML = '<div id="dialogoverlay"></div><div id="dialogbox" class="slit-in-vertical"><div><div id="dialogboxhead"></div><div id="dialogboxbody"></div><div id="dialogboxfoot"></div></div></div>' + document.body.innerHTML;
 
     let dialogoverlay = document.getElementById('dialogoverlay');
     let dialogbox = document.getElementById('dialogbox');

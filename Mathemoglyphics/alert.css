@@ -7,7 +7,6 @@
 .slit-in-vertical {
   -webkit-animation: slit-in-vertical 0.45s ease-out both;
   animation: slit-in-vertical 0.45s ease-out both;
-  transition: opacity 0.45s ease;
 }
 
 @-webkit-keyframes slit-in-vertical {
@@ -70,6 +69,7 @@
   width: 40%;
   z-index: 1000000; /* Ensure it’s above the overlay */
   margin: auto;
+  transition: opacity 0.8s ease;
 }
 
 #dialogbox:hover {

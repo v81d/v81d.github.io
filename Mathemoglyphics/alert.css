@@ -53,6 +53,8 @@
   display: block;
   position: fixed;
   height: 100%;
+  background-color: black;
+  opacity: 0.4;
   backdrop-filter: blur(20px);
   z-index: 999999; /* Make sure it is above other elements */
 }

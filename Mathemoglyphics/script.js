@@ -228,8 +228,15 @@ function tts(btn, id) {
   }
 }
 
-if (window.navigator.userAgent.includes("Edge") || window.navigator.userAgent.includes("Edg")) {
-  customAlert.alert("Your browser (" + window.navigator.userAgent + ") has some compatibility issues with the ResponsiveVoice server. The Read Aloud service will instead use the system speech synthesis service. Apologies for the inconvenience!", "Alert");
+if ("browserChecked" in localStorage) {
+  // Browser has previously been checked; user has already received an alert
+  console.log("Browser has already been checked for ResponsiveVoice compatibility.");
+} else {
+  // Browser has not previously been checked; send an alert now
+  if (window.navigator.userAgent.includes("Edge") || window.navigator.userAgent.includes("Edg")) {
+    customAlert.alert("Your browser (" + window.navigator.userAgent + ") has some compatibility issues with the ResponsiveVoice server. The Read Aloud service will instead use the system speech synthesis service. Apologies for the inconvenience!", "Alert");
+  }
+  localStorage.setItem("browserChecked", "true");
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);

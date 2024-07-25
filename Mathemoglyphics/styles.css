@@ -2,7 +2,8 @@
 
 body {
   font-family: "Manrope", sans-serif;
-  display: relative;
+  display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   padding: 50px;

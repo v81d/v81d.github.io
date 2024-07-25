@@ -5,7 +5,7 @@ body {
   display: flex;
   top: 0;
   width: 100vw;
-  height: 100%;
+  height: 100vh;
   position: relative;
   justify-content: center;
   align-items: center;

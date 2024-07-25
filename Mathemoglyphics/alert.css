@@ -10,8 +10,8 @@
 }
 
 .slit-out-vertical {
-  -webkit-animation: slit-out-vertical 0.45s ease-in both;
-  animation: slit-out-vertical 0.45s ease-in both;
+  -webkit-animation: slit-out-vertical 0.45s ease-out both;
+  animation: slit-out-vertical 0.45s ease-out both;
 }
 
 .opacity-animation {

@@ -132,16 +132,6 @@ function toggleAutoTranslate() {
   document.getElementById("translateToEnglishBtn").disabled = autoTranslateEnabled;
 }
 
-let interval;
-
-function startInterval() {
-  interval = setInterval(checkForInput, 150);
-}
-
-function stopInterval() {
-  clearInterval(interval);
-}
-
 const replaceLast = (str, pattern, replacement) => {
   const match =
     typeof pattern === 'string' ?
@@ -161,36 +151,34 @@ function tts(btn, id) {
   }).replace(/0/g, "zero"), ",", ".");
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
-  setTimeout(function () {
-    responsiveVoice.speak(corrected, "UK English Male", {
-      onstart: function() {
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
-        document.querySelector("#" + btn).style.fill = "#8f36f5";
-        document.querySelector("#en-p").style.cursor = "not-allowed";
-        document.querySelector("#mg-p").style.cursor = "not-allowed";
-      },
-      onerror: function() {
-        console.error("An error occurred while trying to synthesize the speech.");
-        document.querySelector("#en-g").style.fill = "#ccc";
-        document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
-        checkForInput();
-      },
-      onend: function() {
-        document.querySelector("#en-g").style.fill = "#ccc";
-        document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
-        checkForInput();
-      }
-    });
-  }, 1000);
+  responsiveVoice.speak(corrected, "UK English Male", {
+    onstart: function() {
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
+      document.querySelector("#" + btn).style.fill = "#8f36f5";
+      document.querySelector("#en-p").style.cursor = "not-allowed";
+      document.querySelector("#mg-p").style.cursor = "not-allowed";
+    },
+    onerror: function() {
+      console.error("An error occurred while trying to synthesize the speech.");
+      document.querySelector("#en-g").style.fill = "#ccc";
+      document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#en-p").style.cursor = "pointer";
+      document.querySelector("#mg-p").style.cursor = "pointer";
+      checkForInput();
+    },
+    onend: function() {
+      document.querySelector("#en-g").style.fill = "#ccc";
+      document.querySelector("#mg-g").style.fill = "#ccc";
+      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+      document.querySelector("#en-p").style.cursor = "pointer";
+      document.querySelector("#mg-p").style.cursor = "pointer";
+      checkForInput();
+    }
+  });
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
@@ -203,6 +191,8 @@ document.getElementById("englishInput").value = localStorage.getItem("englishInp
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
 checkForInput();
+
+
 
 console.log(
   '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (two wide spaces) and "letters" are separated by " | " (a vertical line). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',

@@ -50,11 +50,8 @@
 #dialogoverlay {
   display: none;
   position: fixed; /* Ensure it's fixed to the viewport */
-  top: 0; /* Start from the very top */
-  left: 0; /* Start from the very left */
   width: 100%; /* Cover full width */
   height: 100%; /* Cover full height */
-  backdrop-filter: blur(20px);
   z-index: 999999; /* Make sure it is above other elements */
 }
 

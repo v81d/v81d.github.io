@@ -77,7 +77,7 @@ body::-webkit-scrollbar {
   transition: all 0.5s ease;
 }
 
-.translator .speak-hover:hover>g {
+.translator .speak-hover:hover > g {
   fill: #999999;
 }
 
@@ -203,17 +203,6 @@ body::-webkit-scrollbar {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-}
-
-.checkbox-wrapper-28 label:after {
-  content: "";
-  height: var(--size);
-  width: var(--size);
-  margin-right: 8px;
-  float: left;
-  border: 2px solid #6e6e6e;
-  border-radius: 5px;
-  transition: 0.15s all ease-out;
 }
 
 @-webkit-keyframes draw-checkbox-28 {

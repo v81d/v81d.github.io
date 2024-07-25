@@ -1,7 +1,5 @@
 // Language & Code by 0201._
 
-import { CustomAlert, customAlert } from "alert.js";
-
 var originalXHR = window.XMLHttpRequest;
 
 // Override the XMLHttpRequest object

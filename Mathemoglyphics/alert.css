@@ -232,11 +232,13 @@
 }
 
 #dialogbox > div {
-  background: #FFF;
+  background: white;
   margin: 8px;
 }
 
 #dialogbox > div > #dialogboxhead {
+  display: flex;
+  align-items: center;
   background: rgb(70, 0, 117);
   font-size: 19px;
   padding: 10px 20px;

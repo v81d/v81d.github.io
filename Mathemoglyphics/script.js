@@ -105,7 +105,7 @@ function checkForInput() {
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   } else {
     console.log("Log: 2");
-    document.querySelector(".pointer").style.cursor = "pointer";
+    document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("englishInputSpeak").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
@@ -116,7 +116,7 @@ function checkForInput() {
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   } else {
     console.log("Log: 4");
-    document.querySelector(".pointer").style.cursor = "pointer";
+    document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }

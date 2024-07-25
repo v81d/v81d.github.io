@@ -49,9 +49,7 @@
 
 #dialogoverlay {
   display: none;
-  position: flex;
-  align-items: center;
-  justify-content: center;
+  position: fixed;
   opacity: 0.4;
   background: #707070;
   width: 100%; /* Cover full width */

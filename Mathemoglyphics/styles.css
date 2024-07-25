@@ -1,7 +1,7 @@
 /* Language & Code by 0201._ */
 
 html, body {
-  height: 100vh;
+  height: 100% !important;
   margin: 0;
 }
 

@@ -49,18 +49,9 @@ function CustomAlert() {
   this.ok = function() {
     let dialogoverlay = document.getElementById('dialogoverlay');
     let dialogbox = document.getElementById('dialogbox');
-
-    // Fade out dialog
-    dialogbox.style.opacity = "0";
-    dialogoverlay.style.opacity = "0";
-
-    // Wait for animation to finish before hiding completely
-    setTimeout(function () {
-      dialogbox.style.display = "none";
-      dialogoverlay.style.display = "none";
-      dialogbox.style.opacity = "1";
-      dialogoverlay.style.opacity = "1";
-    }, 1000);
+    
+    dialogbox.style.display = "none";
+    dialogoverlay.style.display = "none";
   }
 }
 

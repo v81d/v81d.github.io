@@ -6,7 +6,7 @@ function CustomAlert() {
     let dialogbox = document.getElementById('dialogbox');
 
     let winH = window.innerHeight;
-    dialogoverlay.style.height = winH + "px";
+    dialogoverlay.style.height = "100%";
 
     dialogbox.style.top = "100px";
 

@@ -152,11 +152,7 @@
   opacity: 0.08;
 }
 
-.pure-material-button-contained:focus::before {
-  opacity: 0.24;
-}
-
-.pure-material-button-contained:hover:focus::before {
+.pure-material-button-contained:hover::before {
   opacity: 0.3;
 }
 

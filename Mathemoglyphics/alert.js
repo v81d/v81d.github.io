@@ -8,6 +8,7 @@ function CustomAlert() {
       // Create overlay
       dialogoverlay = document.createElement('div');
       dialogoverlay.id = 'dialogoverlay';
+      dialogoverlay.className = 'opacity-animation';
       document.body.appendChild(dialogoverlay);
     }
 
@@ -27,38 +28,45 @@ function CustomAlert() {
       document.body.appendChild(dialogbox);
     }
 
-    // Show the overlay and dialog box
-    dialogoverlay.style.opacity = '0';
-    dialogoverlay.classList.add('opacity-animation');
+    // Ensure the dialog box is visible
     dialogbox.classList.add('slit-in-vertical');
-    dialogoverlay.style.display = 'block';
     dialogbox.style.display = 'block';
 
+    // Show the overlay with opacity transition
+    dialogoverlay.style.display = 'block';
+    setTimeout(() => {
+      dialogoverlay.style.opacity = '1'; // Trigger opacity transition
+    }, 10); // Small delay to ensure transition takes effect
+
     // Set dialog box content
-    if (title === undefined) {
-      document.getElementById('dialogboxhead').style.display = 'none';
+    const dialogboxhead = document.getElementById('dialogboxhead');
+    const dialogboxbody = document.getElementById('dialogboxbody');
+    const dialogboxfoot = document.getElementById('dialogboxfoot');
+
+    if (typeof title === 'undefined') {
+      dialogboxhead.style.display = 'none';
     } else {
-      document.getElementById('dialogboxhead').style.display = 'block';
-      document.getElementById('dialogboxhead').innerHTML = 'ⓘ\xA0' + title;
+      dialogboxhead.style.display = 'block';
+      dialogboxhead.innerHTML = 'ⓘ\xA0' + title;
     }
 
-    document.getElementById('dialogboxbody').innerHTML = message;
-    document.getElementById('dialogboxfoot').innerHTML = `
+    dialogboxbody.innerHTML = message;
+    dialogboxfoot.innerHTML = `
       <button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>
     `;
   }
 
   this.ok = function() {
-    let dialogoverlay = document.getElementById('dialogoverlay');
-    let dialogbox = document.getElementById('dialogbox');
+    const dialogoverlay = document.getElementById('dialogoverlay');
+    const dialogbox = document.getElementById('dialogbox');
 
-    dialogbox.classList.remove('slit-in-vertical');
-    dialogoverlay.classList.remove('opacity-animation');
-    dialogoverlay.style.opacity = '0';
-    setTimeout(function () {
-      dialogbox.style.display = 'none';
+    dialogoverlay.style.opacity = '0'; // Start opacity transition
+    dialogoverlay.classList.remove('slit-in-vertical'); // Start opacity transition
+
+    setTimeout(() => {
       dialogoverlay.style.display = 'none';
-    }, 450);
+      dialogbox.style.display = 'none';
+    }, 450); // Match the duration of the opacity transition
   }
 }
 

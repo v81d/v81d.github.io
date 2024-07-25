@@ -5,9 +5,7 @@ function CustomAlert() {
     let dialogoverlay = document.getElementById('dialogoverlay');
     let dialogbox = document.getElementById('dialogbox');
 
-    dialogbox.style.top = "100px";
-
-    dialogoverlay.style.display = "block";
+    dialogoverlay.style.display = "flex";
     dialogbox.style.display = "block";
 
     document.getElementById('dialogboxhead').style.display = 'block';

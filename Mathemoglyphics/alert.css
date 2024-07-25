@@ -50,7 +50,6 @@
 #dialogoverlay {
   position: fixed;
   display: none;
-  width: 100vw !important;
   height: 100vh !important;
   justify-content: center;
   align-items: center;

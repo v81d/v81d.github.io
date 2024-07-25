@@ -57,7 +57,7 @@
   background-color: rbga(0, 0, 0, 0.3);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  z-index: 99999; /* Make sure it is above other elements */\
+  z-index: 99999; /* Make sure it is above other elements */
   transition: all 0.8s ease;
 }
 

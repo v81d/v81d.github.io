@@ -237,8 +237,7 @@
 }
 
 #dialogbox > div > #dialogboxhead {
-  display: flex;
-  align-items: center;
+  border-radius: 7px;
   background: rgb(70, 0, 117);
   font-size: 19px;
   padding: 10px 20px;

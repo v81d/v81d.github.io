@@ -14,7 +14,7 @@ body {
   background-image: url("bg.jpg");
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
   zoom: 90%;

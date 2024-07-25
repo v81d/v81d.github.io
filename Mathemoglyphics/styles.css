@@ -77,12 +77,8 @@ body::-webkit-scrollbar {
   transition: all 0.5s ease;
 }
 
-.speak-hover:hover:nth-child(1) > svg > g {
-  fill: #999999;
-}
-
-.speak-hover:hover:nth-child(2) > svg > g {
-  fill: #999999;
+.speak-hover:hover > svg > g {
+  fill: #999999 !important;
 }
 
 .translator textarea {

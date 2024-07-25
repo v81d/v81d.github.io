@@ -50,8 +50,7 @@
 #dialogoverlay {
   display: none;
   position: fixed;
-  opacity: 0.4;
-  background: #707070;
+  opacity: 0;
   width: 100%; /* Cover full width */
   height: 100%; /* Cover full height */
   z-index: 999999; /* Make sure it is above other elements */

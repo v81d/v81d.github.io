@@ -124,12 +124,6 @@ function checkForInput() {
   localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
 
-document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
-document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
-
-document.getElementById("englishInput").addEventListener("input", checkForInput);
-document.getElementById("mathInput").addEventListener("input", checkForInput);
-
 function toggleAutoTranslate() {
   const autoTranslateEnabled = document.getElementById("tmp-28").checked;
   document.getElementById("translateToMathBtn").disabled = autoTranslateEnabled;
@@ -205,6 +199,12 @@ function tts(btn, id) {
     checkForInput();
   }
 }
+
+document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
+document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
+
+document.getElementById("englishInput").addEventListener("input", checkForInput);
+document.getElementById("mathInput").addEventListener("input", checkForInput);
 
 document.getElementById("englishInput").value = localStorage.getItem("englishInput");
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");

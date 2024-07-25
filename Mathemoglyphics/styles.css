@@ -205,6 +205,17 @@ body::-webkit-scrollbar {
   user-select: none;
 }
 
+.checkbox-wrapper-28 label:after {
+  content: "";
+  height: var(--size);
+  width: var(--size);
+  margin-right: 8px;
+  float: left;
+  border: 2px solid #6e6e6e;
+  border-radius: 5px;
+  transition: 0.15s all ease-out;
+}
+
 @-webkit-keyframes draw-checkbox-28 {
   0% {
     stroke-dashoffset: 33;

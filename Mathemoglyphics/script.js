@@ -99,37 +99,45 @@ function handleMathInput() {
 
 function checkForInput() {
   if (document.getElementById("englishInput").value.length == 0) {
-    console.log("Log: 1");
     document.querySelector("#en-p").style.cursor = "not-allowed";
     document.getElementById("englishInputSpeak").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
-  }
-  else if (document.getElementById("englishInput").value.length != 0) {
-    console.log("Log: 2");
+  } else {
     document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("englishInputSpeak").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
   if (document.getElementById("mathInput").value.length == 0) {
-    console.log("Log: 3");
     document.querySelector("#mg-p").style.cursor = "not-allowed";
     document.getElementById("mathInputSpeak").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
-  }
-  else if (document.getElementById("mathInput").value.length != 0) {
-    console.log("Log: 4");
+  } else {
     document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
   }
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
 }
+
+document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
+document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
+
+document.getElementById("englishInput").addEventListener("input", checkForInput);
+document.getElementById("mathInput").addEventListener("input", checkForInput);
 
 function toggleAutoTranslate() {
   const autoTranslateEnabled = document.getElementById("tmp-28").checked;
   document.getElementById("translateToMathBtn").disabled = autoTranslateEnabled;
   document.getElementById("translateToEnglishBtn").disabled = autoTranslateEnabled;
+}
+
+let interval;
+
+function startInterval() {
+  interval = setInterval(checkForInput, 150);
+}
+
+function stopInterval() {
+  clearInterval(interval);
 }
 
 const replaceLast = (str, pattern, replacement) => {
@@ -151,48 +159,52 @@ function tts(btn, id) {
   }).replace(/0/g, "zero"), ",", ".");
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
-  responsiveVoice.speak(corrected, "UK English Male", {
-    onstart: function() {
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
-      document.querySelector("#" + btn).style.fill = "#8f36f5";
-      document.querySelector("#en-p").style.cursor = "not-allowed";
-      document.querySelector("#mg-p").style.cursor = "not-allowed";
-    },
-    onerror: function() {
-      console.error("An error occurred while trying to synthesize the speech.");
-      document.querySelector("#en-g").style.fill = "#ccc";
-      document.querySelector("#mg-g").style.fill = "#ccc";
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#en-p").style.cursor = "pointer";
-      document.querySelector("#mg-p").style.cursor = "pointer";
-      checkForInput();
-    },
-    onend: function() {
-      document.querySelector("#en-g").style.fill = "#ccc";
-      document.querySelector("#mg-g").style.fill = "#ccc";
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#en-p").style.cursor = "pointer";
-      document.querySelector("#mg-p").style.cursor = "pointer";
-      checkForInput();
-    }
-  });
+  try {
+    responsiveVoice.speak(corrected, "UK English Male", {
+      onstart: function() {
+        document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
+        document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
+        document.querySelector("#" + btn).style.fill = "#8f36f5";
+        document.querySelector("#en-p").style.cursor = "not-allowed";
+        document.querySelector("#mg-p").style.cursor = "not-allowed";
+      },
+      onerror: function() {
+        console.error("Uh oh! An error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
+        document.querySelector("#en-g").style.fill = "#ccc";
+        document.querySelector("#mg-g").style.fill = "#ccc";
+        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+        document.querySelector("#en-p").style.cursor = "pointer";
+        document.querySelector("#mg-p").style.cursor = "pointer";
+        checkForInput();
+      },
+      onend: function() {
+        document.querySelector("#en-g").style.fill = "#ccc";
+        document.querySelector("#mg-g").style.fill = "#ccc";
+        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+        document.querySelector("#en-p").style.cursor = "pointer";
+        document.querySelector("#mg-p").style.cursor = "pointer";
+        checkForInput();
+      }
+    });
+  } catch (err) {
+    console.error("An error occurred with ResponsiveVoice: ", err);
+    alert("Uh oh! An error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
+    document.querySelector("#en-g").style.fill = "#ccc";
+    document.querySelector("#mg-g").style.fill = "#ccc";
+    document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#en-p").style.cursor = "pointer";
+    document.querySelector("#mg-p").style.cursor = "pointer";
+    checkForInput();
+  }
 }
-
-document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
-document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
-
-document.getElementById("englishInput").addEventListener("input", checkForInput);
-document.getElementById("mathInput").addEventListener("input", checkForInput);
 
 document.getElementById("englishInput").value = localStorage.getItem("englishInput");
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
 checkForInput();
-
-
 
 console.log(
   '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (two wide spaces) and "letters" are separated by " | " (a vertical line). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',

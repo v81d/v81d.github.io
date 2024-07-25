@@ -1,5 +1,24 @@
 // Language & Code by 0201._
 
+var original_XHR = window.XMLHttpRequest;
+
+// Override the XMLHttpRequest object
+window.XMLHttpRequest = function() {
+  console.log('XHR request detected');
+  
+  // Run the onend code
+  document.querySelector("#en-g").style.fill = "#ccc";
+  document.querySelector("#mg-g").style.fill = "#ccc";
+  document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
+  document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
+  document.querySelector("#en-p").style.cursor = "pointer";
+  document.querySelector("#mg-p").style.cursor = "pointer";
+  checkForInput();
+  
+  // Call the original XMLHttpRequest object
+  return new original_XHR();
+};
+
 const englishToMath = {
   a: "∠",
   b: "'1010'",

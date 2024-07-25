@@ -192,8 +192,6 @@ document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
 checkForInput();
 
-
-
 console.log(
   '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (two wide spaces) and "letters" are separated by " | " (a vertical line). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',
   "background-image: linear-gradient(to bottom, #ff931a, #ff999b); -webkit-background-clip: text; color: transparent; font-size: 18px;"

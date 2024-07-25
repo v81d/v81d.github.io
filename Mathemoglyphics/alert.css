@@ -61,14 +61,14 @@
 
 #dialogbox {
   display: none;
-  position: absolute;
+  position: fixed;
   background: rgb(60, 0, 99);
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: 0.3s;
   width: 40%;
-  z-index: 1000000;
-  top: 0;
+  z-index: 1000000; /* Ensure it’s above the overlay */
+  top: 100px; /* Adjusted positioning */
   left: 0;
   right: 0;
   margin: auto;

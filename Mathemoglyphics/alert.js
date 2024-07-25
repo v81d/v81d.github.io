@@ -20,8 +20,12 @@ function CustomAlert() {
   }
 
   this.ok = function() {
-    document.getElementById('dialogbox').style.display = "none";
-    document.getElementById('dialogoverlay').style.display = "none";
+    document.getElementById('dialogbox').style.opacity = "0";
+    document.getElementById('dialogoverlay').style.opacity = "0";
+    setTimeout(function () {
+      document.getElementById('dialogbox').style.display = "none";
+      document.getElementById('dialogoverlay').style.display = "none";
+    }, 1000);
   }
 }
 

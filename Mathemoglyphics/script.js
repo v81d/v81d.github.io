@@ -1,12 +1,13 @@
 // Language & Code by 0201._
 
-var original_XHR = window.XMLHttpRequest;
+var originalXHR = window.XMLHttpRequest;
 
 // Override the XMLHttpRequest object
 window.XMLHttpRequest = function() {
-  console.log('XHR request detected');
+  alert("A processing error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
+  console.error("A processing error occurred while trying to synthesize the speech. (XMLHttpRequest)");
   
-  // Run the onend code
+  // Run the "onend" code
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
   document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
@@ -16,7 +17,7 @@ window.XMLHttpRequest = function() {
   checkForInput();
   
   // Call the original XMLHttpRequest object
-  return new original_XHR();
+  return new originalXHR();
 };
 
 const englishToMath = {
@@ -165,7 +166,7 @@ const replaceLast = (str, pattern, replacement) => {
 
 function tts(btn, id) {
   text = document.getElementById(id).value;
-  corrected = replaceLast(text.replace(/\{ /g, "").replace(/ \}/g, "").replace(/\|/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of X,").replace(/𝑑\/𝑑𝑥/g, "derivative of X,").replace(/2.718…/g, "Euler's number,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of X,").replace(/'½'/g, "one half,").replace(/√\(-1\)/g, "square root of negative one,").replace(/⊷/g, "jump discontinuity,").replace(/𝑘\(𝑥\)/g, "K of X,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/Δ/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi R squared,").replace(/π/g, "pi,").replace(/𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, "quadratic,").replace(/→/g, "ray,").replace(/Σ/g, "sigma,").replace(/τ/g, "tau,").replace(/∪/g, "union,").replace(/┋/g, "vertical line,").replace(/𝑊\(𝑥\)/g, "Lambert W function,").replace(/\'𝑥\'/g, "x,").replace(/𝑚𝑥 \+ 𝑏/g, "M X plus B,").replace(/   /g, " ").replace(/　　/g, ". ").replace(/\((.*?)\)\*/g, function(match, p1) {
+  corrected = replaceLast(text.replace(/\{ /g, "").replace(/ \}/g, "").replace(/\|/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of X,").replace(/𝑑\/𝑑𝑥/g, "derivative of X,").replace(/2.718…/g, "Euler's number,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of X,").replace(/'½'/g, "one half,").replace(/√\(-1\)/g, "square root of negative one,").replace(/⊷/g, "jump discontinuity,").replace(/𝑘\(𝑥\)/g, "K of X,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/Δ/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi R squared,").replace(/π/g, "pi,").replace(/𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, "quadratic,").replace(/→/g, "ray,").replace(/Σ/g, "sigma,").replace(/τ/g, "tau,").replace(/∪/g, "union,").replace(/┋/g, "vertical line,").replace(/𝑊\(𝑥\)/g, "Lambert W function,").replace(/\'𝑥\'/g, "x,").replace(/𝑚𝑥 \+ 𝑏/g, "M X plus B,").replace(/0/g, "zero,").replace(/   /g, " ").replace(/　　/g, ". ").replace(/\((.*?)\)\*/g, function(match, p1) {
     return p1.toUpperCase();
   }), ",", ".");
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
@@ -179,7 +180,7 @@ function tts(btn, id) {
       document.querySelector("#mg-p").style.cursor = "not-allowed";
     },
     onerror: function() {
-      console.error("An error occurred while trying to synthesize the speech.");
+      console.error("An unknown error occurred while trying to synthesize the speech.");
       document.querySelector("#en-g").style.fill = "#ccc";
       document.querySelector("#mg-g").style.fill = "#ccc";
       document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";

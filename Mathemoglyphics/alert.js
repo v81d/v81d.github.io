@@ -49,7 +49,7 @@ function CustomAlert() {
       dialogboxhead.style.display = 'none';
     } else {
       dialogboxhead.style.display = 'block';
-      dialogboxhead.innerHTML = 'ⓘ\xA0' + title;
+      dialogboxhead.innerHTML = 'ⓘㅤ' + title;
     }
 
     dialogboxbody.innerHTML = message;

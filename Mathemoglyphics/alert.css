@@ -49,7 +49,7 @@
 
 #dialogoverlay {
   display: none;
-  opacity: .8;
+  opacity: 0.8;
   position: fixed;
   top: 0px;
   left: 0px;
@@ -63,7 +63,7 @@
   position: absolute;
   background: rgb(60, 0, 99);
   border-radius: 7px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: 0.3s;
   width: 40%;
   z-index: 10;
@@ -74,7 +74,7 @@
 }
 
 #dialogbox:hover {
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.911);
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.575);
 }
 
 .container {
@@ -144,8 +144,7 @@
 }
 
 /* Hover, Focus */
-.pure-material-button-contained:hover,
-.pure-material-button-contained:focus {
+.pure-material-button-contained:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
 }
 

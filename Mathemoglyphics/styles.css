@@ -3,6 +3,9 @@
 body {
   font-family: "Manrope", sans-serif;
   display: flex;
+  top: 0;
+  width: 100vh;
+  height: 100vh;
   position: relative;
   justify-content: center;
   align-items: center;

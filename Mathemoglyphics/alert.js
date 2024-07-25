@@ -8,6 +8,7 @@ function CustomAlert() {
       // Create overlay
       dialogoverlay = document.createElement('div');
       dialogoverlay.id = 'dialogoverlay';
+      dialogoverlay.className = 'slit-in-vertical';
       document.body.appendChild(dialogoverlay);
     }
 

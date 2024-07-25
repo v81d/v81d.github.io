@@ -49,7 +49,9 @@
 
 #dialogoverlay {
   display: none;
-  position: fixed; /* Ensure it's fixed to the viewport */
+  position: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0.4;
   background: #707070;
   width: 100%; /* Cover full width */
@@ -66,9 +68,6 @@
   transition: 0.3s;
   width: 40%;
   z-index: 1000000; /* Ensure it’s above the overlay */
-  top: 50%; /* Center vertically */
-  left: 50%; /* Center horizontally */
-  transform: translate(-50%, -50%); /* Centering trick */
   margin: auto;
 }
 

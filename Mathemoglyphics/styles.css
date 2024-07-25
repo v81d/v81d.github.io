@@ -1,11 +1,15 @@
 /* Language & Code by 0201._ */
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: "Manrope", sans-serif;
   display: flex;
   top: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   position: relative;
   justify-content: center;
   align-items: center;

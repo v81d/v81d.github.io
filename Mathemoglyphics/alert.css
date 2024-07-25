@@ -67,7 +67,7 @@
   background: rgb(60, 0, 99);
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
-  transition: 0.3s;
+  transition: 0.8s;
   width: 40%;
   z-index: 1000000; /* Ensure it’s above the overlay */
   margin: auto;
@@ -104,7 +104,7 @@
   overflow: hidden;
   outline: none;
   cursor: pointer;
-  transition: box-shadow 0.2s;
+  transition: box-shadow 0.8s;
 }
 
 .pure-material-button-contained::-moz-focus-inner {
@@ -122,7 +122,7 @@
   right: 0;
   background-color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
   opacity: 0;
-  transition: opacity 0.2s;
+  transition: opacity 0.8s;
 }
 
 /* Ripple */

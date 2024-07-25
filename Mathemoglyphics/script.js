@@ -163,6 +163,7 @@ function copy(id) {
   text.select();
   text.setSelectionRange(0, 99999);
   document.execCommand('copy');
+  window.getSelection().removeAllRanges();
 }
 
 function tts(btn, id) {

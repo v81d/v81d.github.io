@@ -50,6 +50,8 @@
 #dialogoverlay {
   display: none;
   position: fixed; /* Ensure it's fixed to the viewport */
+  opacity: 0.4;
+  background: #707070;
   width: 100%; /* Cover full width */
   height: 100%; /* Cover full height */
   z-index: 999999; /* Make sure it is above other elements */
@@ -64,9 +66,9 @@
   transition: 0.3s;
   width: 40%;
   z-index: 1000000; /* Ensure it’s above the overlay */
-  top: 100px; /* Adjusted positioning */
-  left: 0;
-  right: 0;
+  top: 50%; /* Center vertically */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, -50%); /* Centering trick */
   margin: auto;
 }
 

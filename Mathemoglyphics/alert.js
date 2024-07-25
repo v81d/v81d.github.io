@@ -77,3 +77,5 @@ function CustomAlert() {
 }
 
 let customAlert = new CustomAlert();
+
+export { CustomAlert, customAlert };

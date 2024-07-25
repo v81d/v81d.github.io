@@ -37,7 +37,7 @@ function CustomAlert() {
       document.getElementById('dialogboxhead').style.display = 'none';
     } else {
       document.getElementById('dialogboxhead').style.display = 'block';
-      document.getElementById('dialogboxhead').innerHTML = 'ⓘ\u0020' + title;
+      document.getElementById('dialogboxhead').innerHTML = 'ⓘ\xA0' + title;
     }
 
     document.getElementById('dialogboxbody').innerHTML = message;

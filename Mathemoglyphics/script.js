@@ -4,7 +4,7 @@ var originalXHR = window.XMLHttpRequest;
 
 // Override the XMLHttpRequest object
 window.XMLHttpRequest = function() {
-  alert("A processing error occurred while trying to synthesize the speech. Apologies for the inconvenience.");
+  customAlert.alert('A processing error occurred while trying to synthesize the speech. Apologies for the inconvenience!','Speech Error');
   console.error("A processing error occurred while trying to synthesize the speech. (XMLHttpRequest)");
   
   // Run the "onend" code

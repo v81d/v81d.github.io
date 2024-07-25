@@ -4,7 +4,7 @@ var originalXHR = window.XMLHttpRequest;
 
 // Override the XMLHttpRequest object
 window.XMLHttpRequest = function() {
-  customAlert.alert('A processing error occurred while trying to synthesize the speech. Apologies for the inconvenience!','Speech Error');
+  customAlert.alert("A processing error occurred while trying to synthesize the speech. Apologies for the inconvenience!", "Alert");
   console.error("A processing error occurred while trying to synthesize the speech. (XMLHttpRequest)");
   
   // Run the "onend" code
@@ -119,25 +119,21 @@ function handleMathInput() {
 
 function checkForInput() {
   if (document.getElementById("englishInput").value.length == 0) {
-    console.log("Log: 1");
     document.querySelector("#en-p").style.cursor = "not-allowed";
     document.getElementById("englishInputSpeak").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   }
   else if (document.getElementById("englishInput").value.length != 0) {
-    console.log("Log: 2");
     document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("englishInputSpeak").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
   }
   if (document.getElementById("mathInput").value.length == 0) {
-    console.log("Log: 3");
     document.querySelector("#mg-p").style.cursor = "not-allowed";
     document.getElementById("mathInputSpeak").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   }
   else if (document.getElementById("mathInput").value.length != 0) {
-    console.log("Log: 4");
     document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mathInputSpeak").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
@@ -230,6 +226,10 @@ function tts(btn, id) {
       }
     });
   }
+}
+
+if (window.navigator.userAgent.includes("Edge") || window.navigator.userAgent.includes("Edg")) {
+  customAlert.alert("Your browser (" + window.navigator.userAgent + ") has some compatibility issues with the ResponsiveVoice server. The Read Aloud service will instead use the system speech synthesis service. Apologies for the inconvenience!", "Alert");
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);

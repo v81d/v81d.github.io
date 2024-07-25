@@ -162,7 +162,7 @@ function tts(btn, id) {
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
   try {
-    responsiveVoice.speak(corrected, "UK English Male", {
+    responsiveVoice.speak(corrected, "UK English Female", {
       onstart: function() {
         document.querySelector("#englishInputSpeak").style.pointerEvents = "none";
         document.querySelector("#mathInputSpeak").style.pointerEvents = "none";
@@ -200,13 +200,6 @@ function tts(btn, id) {
     document.querySelector("#mg-p").style.cursor = "pointer";
     checkForInput();
   }
-  document.querySelector("#en-g").style.fill = "#ccc";
-  document.querySelector("#mg-g").style.fill = "#ccc";
-  document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#en-p").style.cursor = "pointer";
-  document.querySelector("#mg-p").style.cursor = "pointer";
-  checkForInput();
 }
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);

@@ -55,7 +55,7 @@
   left: 0px;
   background: #707070;
   width: 100%;
-  z-index: 10;
+  z-index: 999999;
   height: 100%;
 }
 
@@ -184,12 +184,12 @@
   opacity: 0;
 }
 
-#dialogbox>div {
+#dialogbox > div {
   background: #FFF;
   margin: 8px;
 }
 
-#dialogbox>div>#dialogboxhead {
+#dialogbox > div > #dialogboxhead {
   background: rgb(70, 0, 117);
   font-size: 19px;
   padding: 10px;
@@ -197,14 +197,14 @@
   font-family: "Manrope", sans-serif;
 }
 
-#dialogbox>div>#dialogboxbody {
+#dialogbox > div > #dialogboxbody {
   background: rgb(60, 0, 99);
   padding: 20px;
   color: #FFF;
   font-family: "Manrope", sans-serif;
 }
 
-#dialogbox>div>#dialogboxfoot {
+#dialogbox > div > #dialogboxfoot {
   background: rgb(60, 0, 99);
   padding: 10px;
   text-align: right;

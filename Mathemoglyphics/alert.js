@@ -8,8 +8,6 @@ function CustomAlert() {
       // Create overlay
       dialogoverlay = document.createElement('div');
       dialogoverlay.id = 'dialogoverlay';
-      dialogoverlay.className = 'opacity-animation';
-      dialogoverlay.style.opacity = '0';
       document.body.appendChild(dialogoverlay);
     }
 
@@ -17,7 +15,6 @@ function CustomAlert() {
       // Create dialog box
       dialogbox = document.createElement('div');
       dialogbox.id = 'dialogbox';
-      dialogbox.className = 'slit-in-vertical';
 
       // Add content structure
       dialogbox.innerHTML = `
@@ -31,8 +28,10 @@ function CustomAlert() {
     }
 
     // Show the overlay and dialog box
+    dialogoverlay.style.opacity = '0';
+    dialogoverlay.classList.add('opacity-animation');
+    dialogbox.classList.add('slit-in-vertical');
     dialogoverlay.style.display = 'block';
-    dialogoverlay.style.opacity = '1';
     dialogbox.style.display = 'block';
 
     // Set dialog box content
@@ -52,10 +51,14 @@ function CustomAlert() {
   this.ok = function() {
     let dialogoverlay = document.getElementById('dialogoverlay');
     let dialogbox = document.getElementById('dialogbox');
-    
-    dialogbox.style.display = 'none';
+
+    dialogbox.classList.remove('slit-in-vertical');
+    dialogoverlay.classList.remove('opacity-animation');
     dialogoverlay.style.opacity = '0';
-    dialogoverlay.style.display = 'none';
+    setTimeout(function () {
+      dialogbox.style.display = 'none';
+      dialogoverlay.style.display = 'none';
+    }, 450);
   }
 }
 

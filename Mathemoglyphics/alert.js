@@ -5,9 +5,6 @@ function CustomAlert() {
     let dialogoverlay = document.getElementById('dialogoverlay');
     let dialogbox = document.getElementById('dialogbox');
 
-    let winH = window.innerHeight;
-    dialogoverlay.style.height = "100%";
-
     dialogbox.style.top = "100px";
 
     dialogoverlay.style.display = "block";

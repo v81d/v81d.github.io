@@ -11,11 +11,13 @@ body {
   align-items: center;
   padding: 50px;
   z-index: -99;
-  background-image: url("bg.jpg");
+  background: url("bg.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  background-size: cover;
-  background-repeat: no-repeat;
   margin: 0;
   zoom: 90%;
 }

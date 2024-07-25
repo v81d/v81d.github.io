@@ -1,28 +1,22 @@
 /* Language & Code by 0201._ */
 
-html {
+html, body {
   height: 100%;
+  margin: 0;
 }
 
 body {
   font-family: "Manrope", sans-serif;
   display: flex;
-  top: 0;
-  width: 100vw;
-  height: 100%;
-  position: relative;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   padding: 50px;
-  z-index: -99;
+  margin: 0;
   background: url("bg.jpg") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
-  zoom: 90%;
 }
 
 body::-webkit-scrollbar {
@@ -44,7 +38,6 @@ body::-webkit-scrollbar {
   max-width: 600px;
   flex-direction: column;
   align-items: center;
-  align-self: center !important;
   text-align: center;
   background: white;
   padding: 30px;

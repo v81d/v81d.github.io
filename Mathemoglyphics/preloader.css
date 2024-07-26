@@ -3,7 +3,7 @@
   display: flex;
   height: 100% !important;
   width: 100% !important;
-  background-color: black;
+  background-color: #212121;
   align-items: center;
   justify-content: center;
   z-index: 99999;

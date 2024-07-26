@@ -123,6 +123,7 @@ body::-webkit-scrollbar {
   cursor: pointer;
   transition: all 0.8s ease;
   outline: none;
+  letter-spacing: 1px;
 }
 
 .translator button:disabled {
@@ -133,6 +134,7 @@ body::-webkit-scrollbar {
 .translator button:hover:enabled {
   background: #a561f2 radial-gradient(circle, transparent 1%, #a561f2 1%) center/15000%;
   box-shadow: 0 10px 10px -10px #a561f2;
+  letter-spacing: 2px;
 }
 
 .translator button:active:enabled {

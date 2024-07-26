@@ -182,7 +182,7 @@ function copy(id, g) {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
     checkForInput();
-  }, 2000);
+  }, 1000);
 }
 
 function tts(btn, id) {

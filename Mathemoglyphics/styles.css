@@ -174,12 +174,12 @@ body {
   opacity: 0;
 }
 
-.checkbox-wrapper-28 input:checked~svg {
+.checkbox-wrapper-28 input:checked ~ svg {
   -webkit-animation: draw-checkbox-28 ease-in-out 0.25s forwards;
   animation: draw-checkbox-28 ease-in-out 0.25s forwards;
 }
 
-.checkbox-wrapper-28 input:not(:checked)~svg {
+.checkbox-wrapper-28 input:not(:checked) ~ svg {
   -webkit-animation: erase-checkbox-28 ease-in-out 0.25s forwards;
   animation: erase-checkbox-28 ease-in-out 0.25s forwards;
 }

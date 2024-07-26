@@ -21,6 +21,7 @@
   --_m: linear-gradient(90deg,#0000,#000 15px calc(100% - 15px),#0000);
   -webkit-mask: var(--_m);
           mask: var(--_m);
+  zoom: 250%;
 }
 
 .loader:before { 

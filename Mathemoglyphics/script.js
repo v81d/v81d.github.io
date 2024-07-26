@@ -177,15 +177,13 @@ function copy(id, g) {
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
   document.getElementById(g).style.fill = "#8f36f5";
-  document.getElementById("englishInputSpeak").style.pointerEvents = "none";
-  document.getElementById("mathInputSpeak").style.pointerEvents = "none";
+  document.getElementById(id + "Copy").style.pointerEvents = "none";
   document.querySelector("#en-c").style.cursor = "not-allowed";
   document.querySelector("#mg-c").style.cursor = "not-allowed";
   setTimeout(function () {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
-    document.getElementById("englishInputCopy").style.pointerEvents = "auto";
-    document.getElementById("mathInputCopy").style.pointerEvents = "auto";
+    document.getElementById(id + "Copy").style.pointerEvents = "auto";
     document.querySelector("#en-c").style.cursor = "pointer";
     document.querySelector("#mg-c").style.cursor = "pointer";
   }, 1000);

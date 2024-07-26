@@ -29,6 +29,10 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+ui-toast {
+  max-width: 80%;
+}
+
 .container {
   display: flex;
   width: 100%;

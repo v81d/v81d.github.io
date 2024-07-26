@@ -119,6 +119,7 @@
 
 #dialogbox:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.575);
+  background: rgb(70, 0, 117);
 }
 
 .container {

@@ -129,6 +129,8 @@ function handleEnglishInput() {
   responsiveVoice.cancel();
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
+  document.querySelector("#en-cg").style.fill = "#ccc";
+  document.querySelector("#mg-cg").style.fill = "#ccc";
   checkForInput();
 }
 
@@ -139,6 +141,8 @@ function handleMathInput() {
   responsiveVoice.cancel();
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
+  document.querySelector("#en-cg").style.fill = "#ccc";
+  document.querySelector("#mg-cg").style.fill = "#ccc";
   checkForInput();
 }
 

@@ -122,19 +122,31 @@ function checkForInput() {
     document.querySelector("#en-p").style.cursor = "not-allowed";
     document.getElementById("en-p").classList.remove("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "none";
+    document.querySelector("#en-c").style.cursor = "not-allowed";
+    document.getElementById("en-c").classList.remove("speak-hover");
+    document.getElementById("englishInputCopy").style.pointerEvents = "none";
   } else {
     document.querySelector("#en-p").style.cursor = "pointer";
     document.getElementById("en-p").classList.add("speak-hover");
     document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#en-c").style.cursor = "pointer";
+    document.getElementById("en-c").classList.add("speak-hover");
+    document.getElementById("englishInputCopy").style.pointerEvents = "auto";
   }
   if (document.getElementById("mathInput").value.length == 0) {
     document.querySelector("#mg-p").style.cursor = "not-allowed";
     document.getElementById("mg-p").classList.remove("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "none";
+    document.querySelector("#mg-c").style.cursor = "not-allowed";
+    document.getElementById("mg-c").classList.remove("speak-hover");
+    document.getElementById("mathInputCopy").style.pointerEvents = "none";
   } else {
     document.querySelector("#mg-p").style.cursor = "pointer";
     document.getElementById("mg-p").classList.add("speak-hover");
     document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#mg-c").style.cursor = "pointer";
+    document.getElementById("mg-c").classList.add("speak-hover");
+    document.getElementById("mathInputCopy").style.pointerEvents = "auto";
   }
   localStorage.setItem("englishInput", document.getElementById("englishInput").value);
   localStorage.setItem("mathInput", document.getElementById("mathInput").value);
@@ -158,13 +170,13 @@ const replaceLast = (str, pattern, replacement) => {
     str;
 };
 
-function copy(id) {
+function copy(id, g) {
   var text = document.getElementById(id);
   text.select();
   text.setSelectionRange(0, 99999);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
-  document.getElementById(id).style.fill = "#8f36f5";
+  document.getElementById(g).style.fill = "#8f36f5";
   document.getElementById("englishInputSpeak").style.pointerEvents = "none";
   document.getElementById("mathInputSpeak").style.pointerEvents = "none";
   document.querySelector("#en-c").style.cursor = "not-allowed";
@@ -172,8 +184,8 @@ function copy(id) {
   setTimeout(function () {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
-    document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
-    document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
+    document.getElementById("englishInputCopy").style.pointerEvents = "auto";
+    document.getElementById("mathInputCopy").style.pointerEvents = "auto";
     document.querySelector("#en-c").style.cursor = "pointer";
     document.querySelector("#mg-c").style.cursor = "pointer";
   }, 1000);

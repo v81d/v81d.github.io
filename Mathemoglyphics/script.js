@@ -89,7 +89,7 @@ function translateToMath() {
   const mathText = words.map(word => {
     const translatedWord = word.split("").map((char) => {
       if (char === char.toUpperCase() && /[a-zA-Z]/.test(char)) {
-        return "(" + englishToMath[char.toLowerCase()] + ")*";
+        return "[" + englishToMath[char.toLowerCase()] + "]*";
       } else {
         return englishToMath[char] || char;
       }
@@ -109,7 +109,7 @@ function translateToEnglish() {
   const mathText = document.getElementById("mathInput").value.split("　　");
   const englishText = mathText.map((symbol) => {
     const translatedWord = symbol.slice(2, -2).split(" | ").map((char) => {
-      if (char.endsWith(")*") && /[a-zA-Z]/.test(mathToEnglish[char.slice(1, -2)])) {
+      if (char.endsWith("]*") && /[a-zA-Z]/.test(mathToEnglish[char.slice(1, -2)])) {
         return mathToEnglish[char.slice(1, -2)].toUpperCase() || char;
       } else {
         return mathToEnglish[char] || char;

@@ -164,6 +164,19 @@ function copy(id) {
   text.setSelectionRange(0, 99999);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
+  document.getElementById(id).style.fill = "#8f36f5";
+  document.getElementById("englishInputSpeak").style.pointerEvents = "none";
+  document.getElementById("mathInputSpeak").style.pointerEvents = "none";
+  document.querySelector("#en-c").style.cursor = "not-allowed";
+  document.querySelector("#mg-c").style.cursor = "not-allowed";
+  setTimeout(function () {
+    document.getElementById("en-cg").style.fill = "#ccc";
+    document.getElementById("mg-cg").style.fill = "#ccc";
+    document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
+    document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#en-c").style.cursor = "pointer";
+    document.querySelector("#mg-c").style.cursor = "pointer";
+  }, 1000);
 }
 
 function tts(btn, id) {
@@ -185,7 +198,7 @@ function tts(btn, id) {
       document.querySelector("#" + btn).style.fill = "#8f36f5";
       document.querySelector("#en-p").style.cursor = "not-allowed";
       document.querySelector("#mg-p").style.cursor = "not-allowed";
-      console.log("Speech synthesis started.");
+      console.log("Speech synthesis started. (" + window.navigator.userAgent + ")");
     };
 
     // Event handler when speech synthesis ends
@@ -197,7 +210,7 @@ function tts(btn, id) {
       document.querySelector("#en-p").style.cursor = "pointer";
       document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();
-      console.log("Speech synthesis ended.");
+      console.log("Speech synthesis ended. (" + window.navigator.userAgent + ")");
     };
 
     speechSynthesis.speak(utterance);

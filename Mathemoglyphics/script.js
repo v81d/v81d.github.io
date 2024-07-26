@@ -177,9 +177,13 @@ function copy(id, g) {
   document.querySelector("#mg-c").style.cursor = "not-allowed";
   document.querySelector("#en-c").classList.remove("speak-hover");
   document.querySelector("#mg-c").classList.remove("speak-hover");
+  document.querySelector("#" + g + "-before").style.opacity = "1";
+  document.querySelector("#" + g + "-after").style.opacity = "1";
   setTimeout(function () {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
+    document.querySelector("#" + g + "-before").style.opacity = "0";
+    document.querySelector("#" + g + "-after").style.opacity = "0";
     checkForInput();
   }, 1000);
 }

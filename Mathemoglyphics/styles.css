@@ -111,6 +111,7 @@ body::-webkit-scrollbar {
 
 .translator button {
   font-family: "Manrope", sans-serif;
+  font-weight: bold;
   width: calc(50% - 20px);
   margin: 10px;
   padding: 15px;
@@ -123,7 +124,6 @@ body::-webkit-scrollbar {
   cursor: pointer;
   transition: all 0.8s ease;
   outline: none;
-  letter-spacing: 1px;
 }
 
 .translator button:disabled {

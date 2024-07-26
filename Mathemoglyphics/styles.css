@@ -63,7 +63,7 @@ body::-webkit-scrollbar {
   transition: all 0.8s ease;
 }
 
-.parent {
+.action-wrapper {
   position: absolute;
   margin: 15px;
   width: 20px;

@@ -81,9 +81,6 @@ body::-webkit-scrollbar {
   fill: #999999 !important;
 }
 
-/* Tooltip Attribute Start */
-/* Tooltip Attribute End */
-
 .translator textarea {
   font-family: "Manrope", sans-serif;
   width: 100%;

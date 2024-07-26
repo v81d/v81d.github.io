@@ -245,6 +245,14 @@ function tts(btn, id) {
   }
 }
 
+var mobileHover = function () {
+	$('*').on('touchstart', function () {
+		$(this).trigger('hover');
+	}).on('touchend', function () {
+		$(this).trigger('hover');
+	});
+};
+
 if ("browserChecked" in localStorage) {
   // Browser has previously been checked; user has already received an alert
   console.log("Browser has already been checked for ResponsiveVoice compatibility.");
@@ -263,6 +271,7 @@ document.getElementById("englishInput").value = localStorage.getItem("englishInp
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
 checkForInput();
+mobileHover();
 
 console.log(
   '%cMathemoglyphics is a joke language created by 0201._ that replaces all English letters with a mathematical term. Apparently, math wizards like Alfred speak this on a regular basis and like to hide the fact that it exists. Words are separated by "　　" (two wide spaces) and "letters" are separated by " | " (a vertical line). Enjoy! ... Wait, why in the realm of mathematics are you here? Return to your slumber party, you indentured servant! 😡',

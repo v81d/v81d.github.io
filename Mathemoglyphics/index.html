@@ -21,9 +21,9 @@
     <span style="margin-top: -15px; margin-bottom: 25px; color: gray;">Master the code of Alfred and spiral into the depths of math!</span>
     <div class="translator">
       <div class="col">
-        <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput()"></textarea>
+        <textarea id="englishInput" placeholder="Enter English text" oninput="handleEnglishInput();"></textarea>
         <div class="parent" id="en-p">
-          <svg onclick="tts('en-g', 'englishInput')" id="englishInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
+          <svg onclick="tts('en-g', 'englishInput');" id="englishInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
             <g id="en-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
               <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
               <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
@@ -33,7 +33,7 @@
           </svg>
         </div>
         <div class="parent speak-hover" id="en-c" style="margin-top: 45px;">
-          <svg class="speak" onclick="copy('englishInput', 'en-cg')" version="1.1" id="englishInputCopy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve">
+          <svg class="speak" onclick="copy('englishInput', 'en-cg');" version="1.1" id="englishInputCopy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve">
             <style type="text/css">.st0 { fill-rule: evenodd; clip-rule: evenodd; }</style>
             <g id="en-cg" style="fill: #ccc;">
               <path class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/>
@@ -42,9 +42,9 @@
         </div>
       </div>
       <div class="col">
-        <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput()"></textarea>
+        <textarea id="mathInput" placeholder="Enter Mathemoglyphics text" oninput="handleMathInput();"></textarea>
         <div class="parent" id="mg-p">
-          <svg onclick="tts('mg-g', 'mathInput')" id="mathInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
+          <svg onclick="tts('mg-g', 'mathInput');" id="mathInputSpeak" class="speak" version="1.0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 750 750" preserveAspectRatio="xMidYMid meet">
             <g id="mg-g" transform="translate(0, 750) scale(0.1,-0.1)" fill="#ccc" stroke="none">
               <path d="M3852 6357 c-40 -12 -51 -22 -967 -816 l-750 -650 -781 -1 c-881 0 -849 3 -927 -73 -82 -80 -77 -12 -77 -1132 0 -1115 -4 -1051 75 -1130 77 -78 41 -75 910 -75 l772 0 844 -730 c464 -402 862 -739 885 -750 48 -24 148 -27 198 -6 46 19 104 72 129 120 l22 41 3 2495 c2 2747 7 2554 -59 2634 -61 73 -179 105 -277 73z" />
               <path d="M6071 6333 c-59 -21 -124 -87 -144 -148 -36 -104 -17 -168 87 -304 413 -540 658 -1157 731 -1838 21 -195 21 -550 0 -746 -72 -677 -321 -1302 -731 -1838 -41 -53 -81 -115 -89 -139 -68 -192 122 -383 314 -315 67 23 93 47 184 167 444 591 708 1235 809 1978 20 145 23 207 23 520 0 313 -3 375 -23 520 -101 743 -362 1381 -809 1977 -46 61 -96 121 -112 133 -70 49 -159 62 -240 33z" />
@@ -54,7 +54,7 @@
           </svg>
         </div>
         <div class="parent speak-hover" id="mg-c" style="margin-top: 45px;">
-          <svg class="speak" onclick="copy('mathInput', 'mg-cg')" version="1.1" id="mathInputCopy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve">
+          <svg class="speak" onclick="copy('mathInput', 'mg-cg'); toast.success('The text has been copied to your clipboard.');" version="1.1" id="mathInputCopy" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 115.77 122.88" style="enable-background:new 0 0 115.77 122.88" xml:space="preserve">
             <style type="text/css">.st0 { fill-rule: evenodd; clip-rule: evenodd; }</style>
             <g id="mg-cg" style="fill: #ccc;">
               <path class="st0" d="M89.62,13.96v7.73h12.19h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02v0.02 v73.27v0.01h-0.02c-0.01,3.84-1.57,7.33-4.1,9.86c-2.51,2.5-5.98,4.06-9.82,4.07v0.02h-0.02h-61.7H40.1v-0.02 c-3.84-0.01-7.34-1.57-9.86-4.1c-2.5-2.51-4.06-5.98-4.07-9.82h-0.02v-0.02V92.51H13.96h-0.01v-0.02c-3.84-0.01-7.34-1.57-9.86-4.1 c-2.5-2.51-4.06-5.98-4.07-9.82H0v-0.02V13.96v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07V0h0.02h61.7 h0.01v0.02c3.85,0.01,7.34,1.57,9.86,4.1c2.5,2.51,4.06,5.98,4.07,9.82h0.02V13.96L89.62,13.96z M79.04,21.69v-7.73v-0.02h0.02 c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v64.59v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h12.19V35.65 v-0.01h0.02c0.01-3.85,1.58-7.34,4.1-9.86c2.51-2.5,5.98-4.06,9.82-4.07v-0.02h0.02H79.04L79.04,21.69z M105.18,108.92V35.65v-0.02 h0.02c0-0.91-0.39-1.75-1.01-2.37c-0.61-0.61-1.46-1-2.37-1v0.02h-0.01h-61.7h-0.02v-0.02c-0.91,0-1.75,0.39-2.37,1.01 c-0.61,0.61-1,1.46-1,2.37h0.02v0.01v73.27v0.02h-0.02c0,0.91,0.39,1.75,1.01,2.37c0.61,0.61,1.46,1,2.37,1v-0.02h0.01h61.7h0.02 v0.02c0.91,0,1.75-0.39,2.37-1.01c0.61-0.61,1-1.46,1-2.37h-0.02V108.92L105.18,108.92z"/>
@@ -64,11 +64,11 @@
       </div>
     </div>
     <div class="translator">
-      <button id="translateToMathBtn" onclick="translateToMath()">Translate to Math</button>
-      <button id="translateToEnglishBtn" onclick="translateToEnglish()">Translate to English</button>
+      <button id="translateToMathBtn" onclick="translateToMath();">Translate to Math</button>
+      <button id="translateToEnglishBtn" onclick="translateToEnglish();">Translate to English</button>
     </div>
     <div id="autotranslate" class="checkbox-wrapper-28">
-      <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate()" />
+      <input id="tmp-28" type="checkbox" class="promoted-input-checkbox" onchange="toggleAutoTranslate();" />
       <svg style="z-index: 99; pointer-events: none;">
         <use xlink:href="#checkmark-28" />
       </svg>
@@ -82,6 +82,7 @@
     </div>
   </div>
   <script src="alert.js"></script>
+  <script type="module" src="toast.js"></script>
   <script src="responsive-voice.js"></script>
   <script defer src="script.js"></script>
 </body>

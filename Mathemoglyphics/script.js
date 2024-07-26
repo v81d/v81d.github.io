@@ -110,7 +110,12 @@ function translateToEnglish() {
   const englishText = mathText.map((symbol) => {
     const translatedWord = symbol.slice(2, -2).split(" | ").map((char) => {
       if (char.endsWith("]^") && /[a-zA-Z]/.test(mathToEnglish[char.slice(1, -2)])) {
-        return mathToEnglish[char.slice(1, -2)].toUpperCase() || char;
+        try {
+          return mathToEnglish[char.slice(1, -2)].toUpperCase() || char;
+        } catch (err) {
+          console.error("Translation/convert error: " + err);
+          return mathToEnglish[char] || char;
+        }
       } else {
         return mathToEnglish[char] || char;
       }

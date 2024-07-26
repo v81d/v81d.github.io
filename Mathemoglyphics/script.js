@@ -267,6 +267,13 @@ document.getElementById("translateToEnglishBtn").addEventListener("click", check
 document.getElementById("englishInput").value = localStorage.getItem("englishInput");
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
+window.addEventListener('load', function () {
+  document.getElementById("loaderbox").style.opacity = "0";
+  setTimeout(function () {
+    document.getElementById("loaderbox").style.display = "none";
+  }, 800);
+})
+
 checkForInput();
 
 console.log(

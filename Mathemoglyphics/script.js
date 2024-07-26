@@ -177,7 +177,8 @@ function copy(id, g) {
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
   document.getElementById(g).style.fill = "#8f36f5";
-  document.getElementById(id + "Copy").style.pointerEvents = "none";
+  document.getElementById("englishInputCopy").style.pointerEvents = "none";
+  document.getElementById("mathInputCopy").style.pointerEvents = "none";
   document.querySelector("#en-c").style.cursor = "not-allowed";
   document.querySelector("#mg-c").style.cursor = "not-allowed";
   setTimeout(function () {

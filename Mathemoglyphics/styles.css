@@ -134,7 +134,6 @@ body::-webkit-scrollbar {
 .translator button:hover:enabled {
   background: #a561f2 radial-gradient(circle, transparent 1%, #a561f2 1%) center/15000%;
   box-shadow: 0 10px 10px -10px #a561f2;
-  letter-spacing: 1.5px;
 }
 
 .translator button:active:enabled {

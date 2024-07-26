@@ -21,3 +21,11 @@ toast.info = (content) => new Toast({ content, type: "info" });
 toast.error = (content) => new Toast({ content, type: "danger" });
 toast.warning = (content) => new Toast({ content, type: "warning" });
 toast.message = (content) => new Toast({ content });
+
+// Add event listeners to the button that will trigger the toast
+document.querySelector("#en-csvg").addEventListener("click", (e) => {
+  toast.success("The text has been copied to your clipboard.");
+});
+document.querySelector("#mg-csvg").addEventListener("click", (e) => {
+  toast.success("The text has been copied to your clipboard.");
+});

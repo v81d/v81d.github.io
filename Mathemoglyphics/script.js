@@ -1,5 +1,40 @@
 // Language & Code by 0201._
 
+function checkForInput() {
+  if (document.getElementById("englishInput").value.length == 0) {
+    document.querySelector("#en-p").style.cursor = "not-allowed";
+    document.getElementById("en-p").classList.remove("speak-hover");
+    document.getElementById("englishInputSpeak").style.pointerEvents = "none";
+    document.querySelector("#en-c").style.cursor = "not-allowed";
+    document.getElementById("en-c").classList.remove("speak-hover");
+    document.getElementById("englishInputCopy").style.pointerEvents = "none";
+  } else {
+    document.querySelector("#en-p").style.cursor = "pointer";
+    document.getElementById("en-p").classList.add("speak-hover");
+    document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#en-c").style.cursor = "pointer";
+    document.getElementById("en-c").classList.add("speak-hover");
+    document.getElementById("englishInputCopy").style.pointerEvents = "auto";
+  }
+  if (document.getElementById("mathInput").value.length == 0) {
+    document.querySelector("#mg-p").style.cursor = "not-allowed";
+    document.getElementById("mg-p").classList.remove("speak-hover");
+    document.getElementById("mathInputSpeak").style.pointerEvents = "none";
+    document.querySelector("#mg-c").style.cursor = "not-allowed";
+    document.getElementById("mg-c").classList.remove("speak-hover");
+    document.getElementById("mathInputCopy").style.pointerEvents = "none";
+  } else {
+    document.querySelector("#mg-p").style.cursor = "pointer";
+    document.getElementById("mg-p").classList.add("speak-hover");
+    document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
+    document.querySelector("#mg-c").style.cursor = "pointer";
+    document.getElementById("mg-c").classList.add("speak-hover");
+    document.getElementById("mathInputCopy").style.pointerEvents = "auto";
+  }
+  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
+  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
+}
+
 var originalXHR = window.XMLHttpRequest;
 
 // Override the XMLHttpRequest object
@@ -10,10 +45,6 @@ window.XMLHttpRequest = function() {
   // Run the "onend" code
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
-  document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#en-p").style.cursor = "pointer";
-  document.querySelector("#mg-p").style.cursor = "pointer";
   checkForInput();
   
   // Call the original XMLHttpRequest object
@@ -98,10 +129,7 @@ function handleEnglishInput() {
   responsiveVoice.cancel();
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
-  document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#en-p").style.cursor = "pointer";
-  document.querySelector("#mg-p").style.cursor = "pointer";
+  checkForInput();
 }
 
 function handleMathInput() {
@@ -111,45 +139,7 @@ function handleMathInput() {
   responsiveVoice.cancel();
   document.querySelector("#en-g").style.fill = "#ccc";
   document.querySelector("#mg-g").style.fill = "#ccc";
-  document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-  document.querySelector("#en-p").style.cursor = "pointer";
-  document.querySelector("#mg-p").style.cursor = "pointer";
-}
-
-function checkForInput() {
-  if (document.getElementById("englishInput").value.length == 0) {
-    document.querySelector("#en-p").style.cursor = "not-allowed";
-    document.getElementById("en-p").classList.remove("speak-hover");
-    document.getElementById("englishInputSpeak").style.pointerEvents = "none";
-    document.querySelector("#en-c").style.cursor = "not-allowed";
-    document.getElementById("en-c").classList.remove("speak-hover");
-    document.getElementById("englishInputCopy").style.pointerEvents = "none";
-  } else {
-    document.querySelector("#en-p").style.cursor = "pointer";
-    document.getElementById("en-p").classList.add("speak-hover");
-    document.getElementById("englishInputSpeak").style.pointerEvents = "auto";
-    document.querySelector("#en-c").style.cursor = "pointer";
-    document.getElementById("en-c").classList.add("speak-hover");
-    document.getElementById("englishInputCopy").style.pointerEvents = "auto";
-  }
-  if (document.getElementById("mathInput").value.length == 0) {
-    document.querySelector("#mg-p").style.cursor = "not-allowed";
-    document.getElementById("mg-p").classList.remove("speak-hover");
-    document.getElementById("mathInputSpeak").style.pointerEvents = "none";
-    document.querySelector("#mg-c").style.cursor = "not-allowed";
-    document.getElementById("mg-c").classList.remove("speak-hover");
-    document.getElementById("mathInputCopy").style.pointerEvents = "none";
-  } else {
-    document.querySelector("#mg-p").style.cursor = "pointer";
-    document.getElementById("mg-p").classList.add("speak-hover");
-    document.getElementById("mathInputSpeak").style.pointerEvents = "auto";
-    document.querySelector("#mg-c").style.cursor = "pointer";
-    document.getElementById("mg-c").classList.add("speak-hover");
-    document.getElementById("mathInputCopy").style.pointerEvents = "auto";
-  }
-  localStorage.setItem("englishInput", document.getElementById("englishInput").value);
-  localStorage.setItem("mathInput", document.getElementById("mathInput").value);
+  checkForInput();
 }
 
 function toggleAutoTranslate() {
@@ -181,12 +171,11 @@ function copy(id, g) {
   document.getElementById("mathInputCopy").style.pointerEvents = "none";
   document.querySelector("#en-c").style.cursor = "not-allowed";
   document.querySelector("#mg-c").style.cursor = "not-allowed";
+  document.querySelector("#en-c").classList.remove("speak-hover");
+  document.querySelector("#mg-c").classList.remove("speak-hover");
   setTimeout(function () {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
-    document.getElementById(id + "Copy").style.pointerEvents = "auto";
-    document.querySelector("#en-c").style.cursor = "pointer";
-    document.querySelector("#mg-c").style.cursor = "pointer";
     checkForInput();
   }, 1000);
 }
@@ -210,6 +199,8 @@ function tts(btn, id) {
       document.querySelector("#" + btn).style.fill = "#8f36f5";
       document.querySelector("#en-p").style.cursor = "not-allowed";
       document.querySelector("#mg-p").style.cursor = "not-allowed";
+      document.querySelector("#en-p").classList.remove("speak-hover");
+      document.querySelector("#mg-p").classList.remove("speak-hover");
       console.log("Speech synthesis started. (" + window.navigator.userAgent + ")");
     };
 
@@ -217,10 +208,6 @@ function tts(btn, id) {
     utterance.onend = function() {
       document.querySelector("#en-g").style.fill = "#ccc";
       document.querySelector("#mg-g").style.fill = "#ccc";
-      document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-      document.querySelector("#en-p").style.cursor = "pointer";
-      document.querySelector("#mg-p").style.cursor = "pointer";
       checkForInput();
       console.log("Speech synthesis ended. (" + window.navigator.userAgent + ")");
     };
@@ -235,24 +222,18 @@ function tts(btn, id) {
         document.querySelector("#" + btn).style.fill = "#8f36f5";
         document.querySelector("#en-p").style.cursor = "not-allowed";
         document.querySelector("#mg-p").style.cursor = "not-allowed";
+        document.querySelector("#en-p").classList.remove("speak-hover");
+        document.querySelector("#mg-p").classList.remove("speak-hover");
       },
       onerror: function() {
         console.error("An unknown error occurred while trying to synthesize the speech.");
         document.querySelector("#en-g").style.fill = "#ccc";
         document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
         checkForInput();
       },
       onend: function() {
         document.querySelector("#en-g").style.fill = "#ccc";
         document.querySelector("#mg-g").style.fill = "#ccc";
-        document.querySelector("#englishInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#mathInputSpeak").style.pointerEvents = "auto";
-        document.querySelector("#en-p").style.cursor = "pointer";
-        document.querySelector("#mg-p").style.cursor = "pointer";
         checkForInput();
       }
     });
@@ -272,9 +253,6 @@ if ("browserChecked" in localStorage) {
 
 document.getElementById("translateToMathBtn").addEventListener("click", checkForInput);
 document.getElementById("translateToEnglishBtn").addEventListener("click", checkForInput);
-
-document.getElementById("englishInput").addEventListener("input", checkForInput);
-document.getElementById("mathInput").addEventListener("input", checkForInput);
 
 document.getElementById("englishInput").value = localStorage.getItem("englishInput");
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");

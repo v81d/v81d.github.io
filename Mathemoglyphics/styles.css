@@ -1,10 +1,9 @@
 /* Language & Code by 0201._ */
 
-*,
-*::before,
-*::after {
+*, *::before, *::after, *::-webkit-scrollbar {
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+  display: none;
 }
 
 html, body {
@@ -24,10 +23,6 @@ body {
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
   zoom: 90%;
-}
-
-body::-webkit-scrollbar {
-  display: none;
 }
 
 .container {

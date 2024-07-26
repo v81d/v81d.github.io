@@ -1,7 +1,6 @@
-/* HTML: <div class="loader"></div> */
 .loader {
   --s: 25px;
-  --g :5px;  
+  --g: 5px;  
   
   width: calc(3*(1.353*var(--s) + var(--g)));
   display: grid;
@@ -12,6 +11,7 @@
   -webkit-mask: var(--_m);
           mask: var(--_m);
 }
+
 .loader:before { 
   content: "";
   width: 200%;
@@ -33,6 +33,7 @@
           mask-composite: intersect;
   animation: l10 1s infinite linear;
 }
+
 @keyframes l10 {
   to {transform:translate(calc(100%/3))}
 }

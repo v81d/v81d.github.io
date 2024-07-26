@@ -47,11 +47,11 @@ ui-toast {
 }
 
 .container h1 {
-  display: block;
-  font-size: 2em;
-  font-weight: bold;
-  margin-top: 30px;
-  margin-bottom: 20px;
+  font-size: 2em !important;
+  font-weight: bold !important;
+  line-height: 2.5em !important;
+  margin-top: 30px !important;
+  margin-bottom: 20px !important;
 }
 
 .translator {

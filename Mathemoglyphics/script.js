@@ -185,8 +185,7 @@ function copy(id, g) {
     document.getElementById("en-cg").style.fill = "#ccc";
     document.getElementById("mg-cg").style.fill = "#ccc";
     document.getElementById(id + "Copy").style.pointerEvents = "auto";
-    document.querySelector("#en-c").style.cursor = "pointer";
-    document.querySelector("#mg-c").style.cursor = "pointer";
+    document.querySelector("#" + g.replace(/g/g, "")).style.cursor = "pointer";
   }, 1000);
 }
 

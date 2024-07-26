@@ -89,7 +89,7 @@ body::-webkit-scrollbar {
     border-style: solid;
     border-color: rgba(0,0,0,0.7) transparent transparent transparent;
     z-index: 100;
-    transition: all 2s ease;
+    transition: all 0.8s ease;
     top: 100%;
     margin-top: 8px;
     transform: translateX(-50%) translateY(-100%) rotate(-180deg);
@@ -107,7 +107,7 @@ body::-webkit-scrollbar {
     min-width: 80px;
     border-radius: 5px;
     pointer-events: none;
-    transition: all 2s ease;
+    transition: all 0.8s ease;
     top: 100%;
     margin-top: 8px;
     transform: translateX(-50%) translateY(0%);

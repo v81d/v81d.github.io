@@ -116,7 +116,7 @@ body {
   cursor: pointer;
   transition: all 0.8s ease;
   outline: none;
-  vertical-align: middle;
+  align-content: content;
 }
 
 .translator button:hover {
@@ -133,6 +133,8 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: block;
+  vertical-align: middle;
   color: white;
 }
 
@@ -191,7 +193,6 @@ body {
 }
 
 .checkbox-wrapper-28 label {
-  max-width: 25px;
   color: #6e6e6e;
   line-height: var(--size);
   cursor: pointer;
@@ -202,6 +203,7 @@ body {
 }
 
 .checkbox-label {
+  max-width: 210px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

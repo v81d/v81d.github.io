@@ -116,7 +116,7 @@
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: all 0.8s ease;
-  max-width: 50%;
+  max-width: 40%;
   z-index: 100000; /* Ensure it’s above the overlay */
   margin: auto;
 }

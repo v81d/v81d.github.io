@@ -1,7 +1,18 @@
+.loader-container {
+  position: fixed;
+  height: 100% !important;
+  width: 100% !important;
+  background-color: black;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+}
+
 .loader {
   --s: 25px;
   --g: 5px;  
-  
+
+  z-index: 100000;
   width: calc(3*(1.353*var(--s) + var(--g)));
   display: grid;
   justify-items: end;
@@ -13,6 +24,7 @@
 }
 
 .loader:before { 
+  z-index: 100000;
   content: "";
   width: 200%;
   background:

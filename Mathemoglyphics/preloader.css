@@ -3,8 +3,8 @@
   height: 100% !important;
   width: 100% !important;
   background-color: black;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
   z-index: 99999;
 }
 

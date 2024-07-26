@@ -1,8 +1,11 @@
 /* Language & Code by 0201._ */
 
-*, *::before, *::after, *::-webkit-scrollbar {
+*, *::before, *::after {
   box-sizing: border-box;
   font-family: "Manrope", sans-serif;
+}
+
+*::-webkit-scrollbar {
   display: none;
 }
 

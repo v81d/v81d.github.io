@@ -130,6 +130,13 @@ body {
   cursor: not-allowed;
 }
 
+.btn-text {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: white;
+}
+
 .checkbox-wrapper-28 {
   margin-top: 20px;
   margin-bottom: 30px;

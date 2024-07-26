@@ -80,16 +80,6 @@ body::-webkit-scrollbar {
   fill: #999999 !important;
 }
 
-#en-c:active > svg > g {
-  fill: #8f36f5 !important;
-  transition: fill 0s !important;
-}
-
-#mg-c:active > svg > g {
-  fill: #8f36f5 !important;
-  transition: fill 0s !important;
-}
-
 .translator textarea {
   font-family: "Manrope", sans-serif;
   width: 100%;

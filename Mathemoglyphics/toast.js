@@ -24,8 +24,8 @@ toast.message = (content) => new Toast({ content });
 
 // Add event listeners to the button that will trigger the toast
 document.querySelector("#englishInputCopy").addEventListener("click", (e) => {
-  toast.success("The text has been copied to your clipboard.");
+  toast.success("Text copied to clipboard.");
 });
 document.querySelector("#mathInputCopy").addEventListener("click", (e) => {
-  toast.success("The text has been copied to your clipboard.");
+  toast.success("Text copied to clipboard.");
 });

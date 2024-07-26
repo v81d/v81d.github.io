@@ -140,6 +140,7 @@
   height: 36px;
   vertical-align: middle;
   text-align: center;
+  letter-spacing: 1px;
   text-overflow: ellipsis;
   text-transform: uppercase;
   color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));
@@ -152,7 +153,7 @@
   overflow: hidden;
   outline: none;
   cursor: pointer;
-  transition: box-shadow 0.8s;
+  transition: all 0.8s;
 }
 
 .pure-material-button-contained::-moz-focus-inner {
@@ -194,6 +195,7 @@
 /* Hover, Focus */
 .pure-material-button-contained:hover {
   box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.2), 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12);
+  letter-spacing: 1.5px;
 }
 
 .pure-material-button-contained:hover::before {

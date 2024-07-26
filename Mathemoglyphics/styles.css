@@ -199,6 +199,9 @@ body {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+
+.checkbox-label {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

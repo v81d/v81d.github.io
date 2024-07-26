@@ -9,14 +9,6 @@ var rvApiKey = 'tkHmro1j';
 var rvApiEndpoint = 'https://texttospeech.responsivevoice.org/v1/text:synthesize';
 
 if (typeof responsiveVoice === 'undefined') {
-
-  /*
-   ResponsiveVoice JS v1.8.3
-
-   (c) 2015-2022 LearnBrite
-
-   License: https://responsivevoice.org/license
-  */
   var $jscomp = $jscomp || {};
   $jscomp.scope = {};
   $jscomp.arrayIteratorImpl = function(f) {

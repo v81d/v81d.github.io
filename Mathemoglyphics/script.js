@@ -182,6 +182,11 @@ function copy(id, g) {
   document.querySelector("#en-c").style.cursor = "not-allowed";
   document.querySelector("#mg-c").style.cursor = "not-allowed";
   setTimeout(function () {
+    document.getElementById("en-cg").style.fill = "#ccc";
+    document.getElementById("mg-cg").style.fill = "#ccc";
+    document.getElementById(id + "Copy").style.pointerEvents = "auto";
+    document.querySelector("#en-c").style.cursor = "pointer";
+    document.querySelector("#mg-c").style.cursor = "pointer";
     checkForInput();
   }, 1000);
 }
@@ -193,7 +198,7 @@ function tts(btn, id) {
   }), ",", ".");
   corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
-  if (window.navigator.userAgent.includes("Edge") || window.navigator.userAgent.includes("Edg")) {
+  if (window.navigator.userAgent.includes("Edg")) {
     // Use SpeechSynthesis for Microsoft Edge
     const utterance = new SpeechSynthesisUtterance(corrected);
     utterance.lang = "en-US";

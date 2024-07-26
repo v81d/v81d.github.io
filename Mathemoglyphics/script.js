@@ -182,10 +182,7 @@ function copy(id, g) {
   document.querySelector("#en-c").style.cursor = "not-allowed";
   document.querySelector("#mg-c").style.cursor = "not-allowed";
   setTimeout(function () {
-    document.getElementById("en-cg").style.fill = "#ccc";
-    document.getElementById("mg-cg").style.fill = "#ccc";
-    document.getElementById(id + "Copy").style.pointerEvents = "auto";
-    document.querySelector("#" + g.replace(/g/g, "")).style.cursor = "pointer";
+    checkForInput();
   }, 1000);
 }
 

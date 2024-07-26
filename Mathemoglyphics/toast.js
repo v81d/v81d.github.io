@@ -1,5 +1,4 @@
-// Documentation
-// https://jolty-ui.com/docs/toast
+// Documentation: https://jolty-ui.com/docs/toast
 
 import { Toast } from "https://cdn.jsdelivr.net/npm/jolty@0.6.2/dist/jolty.esm.min.js";
 

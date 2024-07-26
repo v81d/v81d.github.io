@@ -1,5 +1,6 @@
 .loader-container {
   position: fixed;
+  display: flex;
   height: 100% !important;
   width: 100% !important;
   background-color: black;

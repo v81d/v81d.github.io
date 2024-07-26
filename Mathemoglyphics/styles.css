@@ -23,6 +23,7 @@ body {
   background-size: cover;
   -webkit-backdrop-filter: blur(8px);
   backdrop-filter: blur(8px);
+  zoom: 90%;
 }
 
 body::-webkit-scrollbar {

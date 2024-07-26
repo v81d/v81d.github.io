@@ -170,6 +170,7 @@ function copy(id, g) {
   text.setSelectionRange(0, 99999);
   document.execCommand('copy');
   window.getSelection().removeAllRanges();
+  document.activeElement.blur();
   document.getElementById(g).style.fill = "#8f36f5";
   document.getElementById("englishInputCopy").style.pointerEvents = "none";
   document.getElementById("mathInputCopy").style.pointerEvents = "none";

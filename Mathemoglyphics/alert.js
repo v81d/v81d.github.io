@@ -54,7 +54,7 @@ function CustomAlert() {
 
     dialogboxbody.innerHTML = message;
     dialogboxfoot.innerHTML = `
-      <button class="pure-material-button-contained active" onclick="customAlert.ok()">OK</button>
+      <button class="pure-material-button-contained active ripple" onclick="customAlert.ok()">OK</button>
     `;
   }
 

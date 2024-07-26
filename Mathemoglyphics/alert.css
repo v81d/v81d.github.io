@@ -140,7 +140,6 @@
   height: 36px;
   vertical-align: middle;
   text-align: center;
-  letter-spacing: 1px;
   text-overflow: ellipsis;
   text-transform: uppercase;
   color: rgb(var(--pure-material-onprimary-rgb, 255, 255, 255));

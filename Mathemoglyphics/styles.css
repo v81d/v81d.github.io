@@ -116,7 +116,6 @@ body {
   cursor: pointer;
   transition: all 0.8s ease;
   outline: none;
-  text-overflow: ellipsis;
   vertical-align: middle;
 }
 
@@ -134,6 +133,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: inline-block;
   color: white;
 }
 
@@ -192,6 +192,7 @@ body {
 }
 
 .checkbox-wrapper-28 label {
+  max-width: 25px;
   color: #6e6e6e;
   line-height: var(--size);
   cursor: pointer;
@@ -205,6 +206,7 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  display: inline-block;
 }
 
 .checkbox-wrapper-28 label:after {

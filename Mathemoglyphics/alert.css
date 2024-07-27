@@ -111,7 +111,7 @@
   border-radius: 7px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
   transition: all 0.8s ease;
-  max-width: 40%;
+  max-width: 70%;
   min-width: 25%;
   z-index: 100000; /* Ensure it’s above the overlay */
   margin: auto;
@@ -120,10 +120,6 @@
 #dialogbox:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.575);
   background: rgb(70, 0, 117);
-}
-
-.container {
-  padding: 2px 16px;
 }
 
 .pure-material-button-contained {

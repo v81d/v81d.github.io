@@ -53,9 +53,6 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   max-width: 100%
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .translator {
@@ -155,6 +152,9 @@ body {
   margin-bottom: 30px;
   --size: 25px;
   position: relative;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .checkbox-wrapper-28 *,

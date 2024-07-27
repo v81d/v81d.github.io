@@ -34,7 +34,7 @@ body {
 }
 
 #info:hover {
-  fill: #999999 !important;
+  fill: #999 !important;
 }
 
 .container {
@@ -56,11 +56,9 @@ body {
   line-height: 1.2 !important;
   margin-top: 30px !important;
   margin-bottom: 30px !important;
+  display: -webkit-box;
   -webkit-line-clamp: 2;
-  line-clamp: 2;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
   max-width: 100%
 }
 

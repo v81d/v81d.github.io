@@ -220,7 +220,7 @@ function tts(btn, id) {
     { regex: /\'𝑥\'/g, replacement: "x," },
     { regex: /𝑚𝑥 \+ 𝑏/g, replacement: "M X plus B," },
     { regex: /   /g, replacement: " " },
-    { regex: /　　/g, replacement: ". " }
+    { regex: /　　/g, replacement: ". " },
   ];
   
   let corrected = text;
@@ -228,9 +228,12 @@ function tts(btn, id) {
     corrected = corrected.replace(replacements[i].regex, replacements[i].replacement);
   }
   
-  corrected = replaceLast(replaceLast(corrected, "  ", "").replace(/\,\./g, "."), ",", ".").replace(/\[(.*?)\]\^/g, function (match, p1) {
-    return p1.toUppercase + ", CARET";
-  }, ",", ".");
+  corrected = corrected.replace(/\[(.*?)\]\^/g, function(match, p1) {
+    return p1 + ", caret, ";
+  });
+  
+  corrected = replaceLast(corrected, ",", ".");
+
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
   if (window.navigator.userAgent.includes("Edg")) {
     // Use SpeechSynthesis for Microsoft Edge

@@ -231,7 +231,7 @@ function tts(btn, id) {
   }
   
   corrected = corrected.replace(/\[(.*?)\]\^/g, function(match, p1) {
-    return p1 + " caret, ";
+    return p1 + " caret,";
   });
   
   corrected = replaceLast(corrected, ",", ".");

@@ -30,8 +30,8 @@ body {
 
 #info {
   position: relative;
-  top: 15px;
-  right: 15px;
+  align-self: start !important;
+  justify-self: right !important;
   transition: fill 0.8s ease;
 }
 

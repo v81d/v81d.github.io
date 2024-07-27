@@ -268,9 +268,9 @@ document.getElementById("englishInput").value = localStorage.getItem("englishInp
 document.getElementById("mathInput").value = localStorage.getItem("mathInput");
 
 window.addEventListener('load', function () {
-  document.getElementById("loader-container").style.opacity = "0";
+  document.getElementById("preloader").style.opacity = "0";
   setTimeout(function () {
-    document.getElementById("loader-container").style.display = "none";
+    document.getElementById("preloader").style.display = "none";
   }, 800);
 })
 

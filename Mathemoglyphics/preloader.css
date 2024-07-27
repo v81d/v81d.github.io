@@ -19,6 +19,7 @@
   top: 50%;
   margin: -85px 0 0 -78px;
   perspective: 500px;
+  scale: 1.5;
 }
 
 .shadow {

@@ -69,7 +69,7 @@ function CustomAlert() {
     // Hide overlay and dialog box after animation ends
     dialogoverlay.style.opacity = '0'; // Start opacity transition
 
-    setTimeout(() => {
+    setTimeout(function () {
       dialogoverlay.style.display = 'none';
       dialogbox.style.display = 'none'; // Ensure the dialog box is hidden
     }, 450); // Match the duration of the animation
@@ -79,5 +79,9 @@ function CustomAlert() {
 let customAlert = new CustomAlert();
 
 document.getElementById("info").addEventListener("click", function () {
-  customAlert.alert("The Mathemoglyphics pseudolanguage and its respective translator are created by 0201._. Uppercase letters are translated to its corresponding Mathemoglyphics symbol surrounded by brackets, which are then followed by a circumflex (\"^\"). Each translated word is surrounded by curly brackets, while all translated letters within that word are separated by a pipe, or vertical bar, surrounded by spaces (\" | \").", "Information")
+  customAlert.alert("The Mathemoglyphics pseudolanguage and its respective translator are created by 0201._. Uppercase letters are translated to its corresponding Mathemoglyphics symbol surrounded by brackets, which are then followed by a circumflex (\"^\"). Each translated word is surrounded by curly brackets, while all translated letters within that word are separated by a pipe, or vertical bar, surrounded by spaces (\" | \").", "Information");
+  document.getElementById("info").style.fill = "#8f36f5";
+  setTimeout(function () {
+    document.getElementById("info").style.fill = "#ccc";
+  }, 1000);
 });

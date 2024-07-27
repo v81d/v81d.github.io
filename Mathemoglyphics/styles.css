@@ -50,6 +50,10 @@ body {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  max-width: 100%
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .translator {
@@ -139,6 +143,9 @@ body {
   display: block;
   vertical-align: middle;
   color: white;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checkbox-wrapper-28 {
@@ -206,7 +213,7 @@ body {
 }
 
 .checkbox-label {
-  max-width: 250px;
+  max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

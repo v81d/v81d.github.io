@@ -125,7 +125,10 @@
   left: 50%;
   transform: translateX(-50%);
   font-size: 6px;
-  color: #666
+  color: #666;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .macbody {

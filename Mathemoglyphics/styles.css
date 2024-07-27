@@ -28,6 +28,16 @@ body {
   zoom: 90%;
 }
 
+#info {
+  float: right;
+  top: 15px;
+  right: 15px;
+}
+
+#info:hover {
+  fill: #999999;
+}
+
 .container {
   display: flex;
   width: 100%;

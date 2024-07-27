@@ -230,7 +230,7 @@ function tts(btn, id) {
   
   corrected = replaceLast(replaceLast(corrected, "  ", "").replace(/\,\./g, "."), ",", ".").replace(/\[(.*?)\]\^/g, function (match, p1) {
     return p1.toUppercase + ", CARET";
-  }), ",", ".");
+  }, ",", ".");
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
   if (window.navigator.userAgent.includes("Edg")) {
     // Use SpeechSynthesis for Microsoft Edge

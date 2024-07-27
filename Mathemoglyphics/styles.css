@@ -152,9 +152,6 @@ body {
   margin-bottom: 30px;
   --size: 25px;
   position: relative;
-  width: 100%;
-  align-items: center;
-  justify-content: center;
 }
 
 .checkbox-wrapper-28 *,

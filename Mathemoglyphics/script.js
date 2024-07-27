@@ -1,5 +1,3 @@
-// Language & Code by 0201._
-
 function checkForInput() {
   if (document.getElementById("englishInput").value.length == 0) {
     document.querySelector("#en-p").style.cursor = "not-allowed";

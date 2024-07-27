@@ -217,6 +217,9 @@ body {
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .checkbox-wrapper-28 label:after {

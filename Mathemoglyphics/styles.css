@@ -29,9 +29,11 @@ body {
 }
 
 #info {
-  position: relative;
+  position: absolute;
   align-self: start !important;
   justify-self: right !important;
+  margin-top: 15px;
+  margin-right: 15px;
   transition: fill 0.8s ease;
 }
 

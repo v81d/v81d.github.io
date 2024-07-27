@@ -177,6 +177,7 @@
 #dialogbox > div {
   background: rgb(60, 0, 99);
   margin: 8px;
+  border-radius: 7px;
 }
 
 #dialogbox > div > #dialogboxhead {

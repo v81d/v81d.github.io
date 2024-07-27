@@ -316,6 +316,13 @@ window.addEventListener('load', function () {
   }, 800);
 });
 
+if (window.screen.availHeight < 620 || window.screen.availWidth < 305) {
+  customAlert.alert("Your screen is too small to display this page. You will be redirected to your previous page in 10 seconds. Apologies for the inconvenience!", "Alert");
+  setTimeout(function () {
+    history.go(-1);
+  }, 10000);
+}
+
 checkForInput();
 
 console.log(

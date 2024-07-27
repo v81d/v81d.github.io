@@ -313,15 +313,14 @@ window.addEventListener('load', function () {
   document.getElementById("preloader").style.opacity = "0";
   setTimeout(function () {
     document.getElementById("preloader").style.display = "none";
+    if (window.innerHeight < 620 || window.innerWidth < 305) {
+      customAlert.alert("Your screen is too small to display this page. You will be redirected to your previous page in 10 seconds. Apologies for the inconvenience!", "Alert");
+      setTimeout(function () {
+        history.go(-1);
+      }, 10000);
+    }
   }, 800);
 });
-
-if (window.screen.height < 620 || window.screen.width < 305) {
-  customAlert.alert("Your screen is too small to display this page. You will be redirected to your previous page in 10 seconds. Apologies for the inconvenience!", "Alert");
-  setTimeout(function () {
-    history.go(-1);
-  }, 10000);
-}
 
 checkForInput();
 

@@ -316,9 +316,6 @@ window.addEventListener('load', function () {
   }, 800);
 });
 
-var module = document.getElementById("title");
-$clamp(module, {clamp: 2});
-
 checkForInput();
 
 console.log(

@@ -277,6 +277,6 @@ window.addEventListener('load', function () {
 checkForInput();
 
 console.log(
-  '%cWhy in the realm of Alfred\'s mathematics are you doing in here? Return to your slumber party, you indentured servant!',
+  '%cWhat in the realm of Alfred\'s mathematics are you doing in here? Return to your slumber party, you indentured servant!',
   "background-image: linear-gradient(to bottom, #ff931a, #ff999b); -webkit-background-clip: text; color: transparent; font-size: 18px;"
 );

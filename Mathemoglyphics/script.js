@@ -190,10 +190,45 @@ function copy(id, g) {
 
 function tts(btn, id) {
   text = document.getElementById(id).value;
-  corrected = replaceLast(text.replace(/\{ /g, "").replace(/ \}/g, "").replace(/\|/g, " ").replace(/∠/g, "angle,").replace(/\'1010\'/g, "binary,").replace(/⌈𝑥⌉/g, "ceiling of X,").replace(/𝑑\/𝑑𝑥/g, "derivative of X,").replace(/2.718…/g, "Euler's number,").replace(/φ/g, "phi,").replace(/Γ\(𝑥\)/g, "gamma of X,").replace(/'½'/g, "one half,").replace(/√\(-1\)/g, "square root of negative one,").replace(/⊷/g, "jump discontinuity,").replace(/𝑘\(𝑥\)/g, "K of X,").replace(/𝑙𝑖𝑚/g, "limit,").replace(/Δ/g, "slope,").replace(/ℕ/g, "set of natural numbers,").replace(/π𝑟²/g, "pi R squared,").replace(/π/g, "pi,").replace(/𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, "quadratic,").replace(/→/g, "ray,").replace(/Σ/g, "sigma,").replace(/τ/g, "tau,").replace(/∪/g, "union,").replace(/┋/g, "vertical line,").replace(/𝑊\(𝑥\)/g, "Lambert W function,").replace(/\'𝑥\'/g, "x,").replace(/𝑚𝑥 \+ 𝑏/g, "M X plus B,").replace(/   /g, " ").replace(/　　/g, ". ").replace(/\[(.*?)\]\^/g, function(match, p1) {
-    return p1.toUpperCase();
-  }), ",", ".");
-  corrected = replaceLast(corrected, "  ", "").replace(/\,\./g, ".")
+  const replacements = [
+    { regex: /\{ /g, replacement: "" },
+    { regex: / \}/g, replacement: "" },
+    { regex: /\|/g, replacement: " " },
+    { regex: /∠/g, replacement: "angle," },
+    { regex: /\'1010\'/g, replacement: "binary," },
+    { regex: /⌈𝑥⌉/g, replacement: "ceiling of X," },
+    { regex: /𝑑\/𝑑𝑥/g, replacement: "derivative of X," },
+    { regex: /2.718…/g, replacement: "Euler's number," },
+    { regex: /φ/g, replacement: "phi," },
+    { regex: /Γ\(𝑥\)/g, replacement: "gamma of X," },
+    { regex: /'½'/g, replacement: "one half," },
+    { regex: /√\(-1\)/g, replacement: "square root of negative one," },
+    { regex: /⊷/g, replacement: "jump discontinuity," },
+    { regex: /𝑘\(𝑥\)/g, replacement: "K of X," },
+    { regex: /𝑙𝑖𝑚/g, replacement: "limit," },
+    { regex: /Δ/g, replacement: "slope," },
+    { regex: /ℕ/g, replacement: "set of natural numbers," },
+    { regex: /π𝑟²/g, replacement: "pi R squared," },
+    { regex: /π/g, replacement: "pi," },
+    { regex: /𝑎𝑥² \+ 𝑏𝑥 \+ 𝑐/g, replacement: "quadratic," },
+    { regex: /→/g, replacement: "ray," },
+    { regex: /Σ/g, replacement: "sigma," },
+    { regex: /τ/g, replacement: "tau," },
+    { regex: /∪/g, replacement: "union," },
+    { regex: /┋/g, replacement: "vertical line," },
+    { regex: /𝑊\(𝑥\)/g, replacement: "Lambert W function," },
+    { regex: /\'𝑥\'/g, replacement: "x," },
+    { regex: /𝑚𝑥 \+ 𝑏/g, replacement: "M X plus B," },
+    { regex: /   /g, replacement: " " },
+    { regex: /　　/g, replacement: ". " },
+  ];
+  
+  let corrected = text;
+  for (let i = 0; i < replacements.length; i++) {
+    corrected = corrected.replace(replacements[i].regex, replacements[i].replacement);
+  }
+  
+  corrected = replaceLast(replaceLast(corrected, "  ", "").replace(/\,\./g, "."), ",", ".");
   console.warn("\"" + text + "\" is being pronounced phonetically as \"" + corrected + "\"");
   if (window.navigator.userAgent.includes("Edg")) {
     // Use SpeechSynthesis for Microsoft Edge

@@ -25,9 +25,8 @@ body {
 }
 
 #info {
-  position: absolute;
-  top: 15px;
-  right: 15px;
+  position: fixed;
+  align-self: end;
   fill: #ccc;
   cursor: pointer;
   transition: fill 0.8s ease;

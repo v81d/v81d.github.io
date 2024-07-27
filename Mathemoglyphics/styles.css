@@ -38,7 +38,7 @@ body {
 }
 
 #info:hover {
-  fill: #999999;
+  fill: #999999 !important;
 }
 
 .container {

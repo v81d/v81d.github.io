@@ -122,7 +122,8 @@
 .screen .face-one span {
   position: absolute;
   top: 85px;
-  left: 57px;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 6px;
   color: #666
 }

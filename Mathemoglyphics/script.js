@@ -314,7 +314,10 @@ window.addEventListener('load', function () {
   setTimeout(function () {
     document.getElementById("preloader").style.display = "none";
   }, 800);
-})
+});
+
+var module = document.getElementById("title");
+$clamp(module, {clamp: 2});
 
 checkForInput();
 

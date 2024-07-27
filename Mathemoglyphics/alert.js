@@ -77,3 +77,7 @@ function CustomAlert() {
 }
 
 let customAlert = new CustomAlert();
+
+document.getElementById("info").addEventListener("click", function () {
+  customAlert.alert("The Mathemoglyphics pseudolanguage and its respective translator are created by 0201._. Uppercase letters are translated to its corresponding Mathemoglyphics symbol surrounded by brackets, which are then followed by a circumflex (\"^\"). Each translated word is surrounded by curly brackets, while all translated letters within that word are separated by a pipe, or vertical bar, surrounded by spaces (\" | \").", "Information")
+});

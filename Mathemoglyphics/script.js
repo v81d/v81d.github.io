@@ -221,7 +221,8 @@ function tts(btn, id) {
     { regex: /𝑚𝑥 \+ 𝑏/g, replacement: "M X plus B," },
     { regex: /   /g, replacement: " " },
     { regex: /　　/g, replacement: ". " },
-    { regex: /\,\./g, replacement: ". "}
+    { regex: /\,\./g, replacement: ". "},
+    { regex: /  /g, replacement: " "}
   ];
   
   let corrected = text;

@@ -33,6 +33,7 @@ body {
   top: 15px;
   right: 15px;
   fill: #ccc;
+  cursor: pointer;
   transition: fill 0.8s ease;
 }
 

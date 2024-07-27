@@ -99,6 +99,7 @@
   width: 100% !important;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
+  transition: opacity 0.8s ease;
   z-index: 99999; /* Make sure it is above other elements */
 }
 

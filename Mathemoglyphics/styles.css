@@ -47,6 +47,9 @@ body {
   line-height: 1.2 !important;
   margin-top: 30px !important;
   margin-bottom: 30px !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .translator {
@@ -203,7 +206,7 @@ body {
 }
 
 .checkbox-label {
-  max-width: 210px;
+  max-width: 250px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;

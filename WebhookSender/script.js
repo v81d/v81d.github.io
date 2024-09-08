@@ -1,5 +1,5 @@
 document.getElementById('sendButton').addEventListener('click', function() {
-  const webhookURL = 'YOUR_DISCORD_WEBHOOK_URL';
+  const webhookURL = 'https://discord.com/api/webhooks/1282421914769293454/sRONqkteWdt4EUyEow2WTjjaHdc4qpbnf5ln7_aTpKxhgLUeuy4A1A1B--brwQbf1KaH';
   const messageContent = document.getElementById('messageInput').value;
   const message = {
     content: messageContent

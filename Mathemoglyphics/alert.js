@@ -79,7 +79,7 @@ function CustomAlert() {
 let customAlert = new CustomAlert();
 
 document.getElementById("info").addEventListener("click", function () {
-  customAlert.alert("In the Mathemoglyphics pseudolanguage (or cipher, if preferred), uppercase letters are translated to its corresponding Mathemoglyphics symbol surrounded by brackets altogether preceding a caret (\"^\"). Each translated word is bordered by curly brackets, while its subcomponents (letters, or Mathemoglyphics symbols) are disjoined by pipes (\" | \").", "Information");
+  customAlert.alert("In the Mathemoglyphics pseudolanguage, uppercase letters are translated to its corresponding Mathemoglyphics symbol surrounded by brackets altogether preceding a caret (\"^\"). Each translated word is bordered by curly brackets, while its subcomponents (letters, or Mathemoglyphics symbols) are disjoined by pipes (\" | \").", "Information");
   document.getElementById("info").style.fill = "#8f36f5";
   setTimeout(function () {
     document.getElementById("info").style.fill = "#ccc";

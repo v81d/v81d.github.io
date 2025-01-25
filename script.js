@@ -79,6 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mousedown', handleMouseDown);
         document.addEventListener('mouseup', handleMouseUp);
     }
+    createParticles();
 });
 
 function handleMouseMove(e) {
@@ -144,3 +145,31 @@ displayDailyQuote();
 document.addEventListener('contextmenu', (event) => {
     event.preventDefault();
 });
+
+function createParticles() {
+    const container = document.getElementById('particles');
+    const particleCount = 16;
+
+    for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        const size = Math.random() * 2 + 2;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        particle.style.left = `${Math.random() * 100}%`;
+        particle.style.top = `${Math.random() * 100}%`;
+        
+        particle.style.setProperty('--moveX1', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty('--moveY1', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty('--moveX2', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty('--moveY2', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty('--moveX3', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty('--moveY3', `${Math.random() * 300 - 150}px`);
+        
+        particle.style.animationDelay = `${Math.random() * -30}s, ${Math.random() * -3}s`;
+        
+        container.appendChild(particle);
+    }
+}

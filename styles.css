@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
 
+:root {
+    touch-action: pan-x pan-y;
+    height: 100% 
+}
+
 html,
 body {
     margin: 0;
@@ -7,6 +12,8 @@ body {
     width: 100%;
     height: 100%;
     background-color: black;
+    touch-action: none;
+    overflow: hidden;
 }
 
 body {
@@ -66,6 +73,24 @@ body {
     }
 }
 
+@keyframes float {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+    25% {
+        transform: translate(8px, 8px) rotate(0.5deg);
+    }
+    50% {
+        transform: translate(5px, -8px) rotate(0deg);
+    }
+    75% {
+        transform: translate(-8px, 3px) rotate(-0.5deg);
+    }
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
+
 #quote {
     background: linear-gradient(45deg,
             #ffffff 0%,
@@ -78,13 +103,16 @@ body {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    transform: translateY(-10px);
+    transform: translateY(0);
     opacity: 0;
     animation:
         fadeIn 2.5s ease-out forwards,
-        gradient 12s ease infinite;
-    animation-delay: 0.8s, 0.8s;
-    animation-direction: normal, alternate-reverse;
+        gradient 12s ease infinite,
+        float 20s ease-in-out infinite;
+    animation-delay: 0.8s, 0.8s, 0.8s;
+    animation-direction: normal, alternate-reverse, normal;
+    transform-origin: center;
+    will-change: transform;
 }
 
 .cursor-dot,
@@ -142,4 +170,16 @@ body {
 
 * {
     cursor: none;
+}
+
+@media (hover: none) and (pointer: coarse) {
+    .cursor-dot,
+    .cursor-circle,
+    .cursor-glow {
+        display: none;
+    }
+    
+    * {
+        cursor: auto;
+    }
 }

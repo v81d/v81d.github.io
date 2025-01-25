@@ -60,18 +60,28 @@ function initCursorPosition(e) {
     cursorGlow.style.top = `${currentY}px`;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    initCursorPosition({
-        clientX: window.innerWidth / 2,
-        clientY: window.innerHeight / 2
-    });
+function isTouchDevice() {
+    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+}
 
-    setTimeout(showCursor, 300);
+document.addEventListener('DOMContentLoaded', () => {
+    if (!isTouchDevice()) {
+        initCursorPosition({
+            clientX: window.innerWidth / 2,
+            clientY: window.innerHeight / 2
+        });
+        setTimeout(showCursor, 300);
+        
+        document.addEventListener('mouseenter', initCursorPosition);
+        document.addEventListener('mousemove', handleMouseMove);
+        document.addEventListener('mouseleave', hideCursor);
+        document.addEventListener('mouseenter', showCursor);
+        document.addEventListener('mousedown', handleMouseDown);
+        document.addEventListener('mouseup', handleMouseUp);
+    }
 });
 
-document.addEventListener('mouseenter', initCursorPosition);
-
-document.addEventListener('mousemove', (e) => {
+function handleMouseMove(e) {
     const posX = e.clientX;
     const posY = e.clientY;
 
@@ -82,7 +92,17 @@ document.addEventListener('mousemove', (e) => {
     circleTargetY = posY - 20;
     targetX = posX - 150;
     targetY = posY - 150;
-});
+}
+
+function handleMouseDown() {
+    cursorDot.style.transform = 'scale(0.8)';
+    cursorCircle.style.transform = 'scale(0.8)';
+}
+
+function handleMouseUp() {
+    cursorDot.style.transform = 'scale(1)';
+    cursorCircle.style.transform = 'scale(1)';
+}
 
 function lerp(start, end, factor) {
     return start + (end - start) * factor;
@@ -104,16 +124,6 @@ function updatePositions() {
 
 updatePositions();
 
-document.addEventListener('mousedown', () => {
-    cursorDot.style.transform = 'scale(0.8)';
-    cursorCircle.style.transform = 'scale(0.8)';
-});
-
-document.addEventListener('mouseup', () => {
-    cursorDot.style.transform = 'scale(1)';
-    cursorCircle.style.transform = 'scale(1)';
-});
-
 function showCursor() {
     cursorDot.classList.add('cursor-visible');
     cursorCircle.classList.add('cursor-visible');
@@ -128,9 +138,6 @@ function hideCursor() {
 
 window.addEventListener('focus', showCursor);
 window.addEventListener('blur', hideCursor);
-
-document.addEventListener('mouseleave', hideCursor);
-document.addEventListener('mouseenter', showCursor);
 
 displayDailyQuote();
 

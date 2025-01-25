@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
 
-:root {
-    touch-action: pan-x pan-y;
-    height: 100% 
+* {
+    cursor: none !important;
 }
 
 html,
@@ -64,12 +63,10 @@ body {
 @keyframes fadeIn {
     0% {
         opacity: 0;
-        transform: translateY(20px);
     }
 
     100% {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -77,38 +74,54 @@ body {
     0% {
         transform: translate(0, 0) rotate(0deg);
     }
+
     25% {
         transform: translate(8px, 8px) rotate(0.5deg);
     }
+
     50% {
         transform: translate(5px, -8px) rotate(0deg);
     }
+
     75% {
         transform: translate(-8px, 3px) rotate(-0.5deg);
     }
+
     100% {
         transform: translate(0, 0) rotate(0deg);
     }
 }
 
 @keyframes particleFloat {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: translate(0, 0);
     }
+
     25% {
         transform: translate(var(--moveX1), var(--moveY1));
     }
+
     50% {
         transform: translate(var(--moveX2), var(--moveY2));
     }
+
     75% {
         transform: translate(var(--moveX3), var(--moveY3));
     }
 }
 
 @keyframes twinkle {
-    0%, 100% { opacity: 0.1; }
-    50% { opacity: 0.7; }
+
+    0%,
+    100% {
+        opacity: 0.1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
 }
 
 #quote {
@@ -147,8 +160,8 @@ body {
     background-color: white;
     border-radius: 50%;
     box-shadow: 0 0 3px rgba(255, 255, 255, 0.8),
-                0 0 8px rgba(255, 255, 255, 0.3);
-    animation: 
+        0 0 8px rgba(255, 255, 255, 0.3);
+    animation:
         particleFloat 30s infinite linear,
         twinkle 3s infinite ease-in-out;
     opacity: 0.1;
@@ -208,18 +221,49 @@ body {
     opacity: 1;
 }
 
-* {
-    cursor: none;
+.math-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: transparent;
+    border: 3px solid rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    font-size: 16px;
+    transition: all 3s ease,
+        scale 300ms ease;
+    z-index: 1000;
+    overflow: hidden;
+    opacity: 0;
+    animation: fadeIn 2.5s ease-out forwards;
+    animation-delay: 0.8s;
 }
 
-@media (hover: none) and (pointer: coarse) {
-    .cursor-dot,
-    .cursor-circle,
-    .cursor-glow {
-        display: none;
-    }
-    
-    * {
-        cursor: auto;
-    }
+.math-button:hover {
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.math-button:active {
+    scale: 0.9;
+}
+
+.spotlight {
+    position: absolute;
+    pointer-events: none;
+    width: 120px;
+    height: 120px;
+    background: radial-gradient(circle,
+            rgba(255, 255, 255, 0.15) 0%,
+            rgba(255, 255, 255, 0.05) 40%,
+            transparent 70%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 3s ease;
+    mix-blend-mode: screen;
+}
+
+* {
+    cursor: none;
 }

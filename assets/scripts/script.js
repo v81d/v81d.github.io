@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
             clientY: window.innerHeight / 2
         });
         setTimeout(showCursor, 300);
-        
+
         document.addEventListener('mouseenter', initCursorPosition);
         document.addEventListener('mousemove', handleMouseMove);
         document.addEventListener('mouseleave', hideCursor);
@@ -80,6 +80,26 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mouseup', handleMouseUp);
     }
     createParticles();
+
+    // Add spotlight
+    const mathButton = document.querySelector('.math-button');
+    const spotlight = document.createElement('div');
+    spotlight.className = 'spotlight';
+    mathButton.appendChild(spotlight);
+
+    mathButton.addEventListener('mousemove', (e) => {
+        const rect = mathButton.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        spotlight.style.left = x + 'px';
+        spotlight.style.top = y + 'px';
+        spotlight.style.opacity = '1';
+    });
+
+    mathButton.addEventListener('mouseleave', () => {
+        spotlight.style.opacity = '0';
+    });
 });
 
 function handleMouseMove(e) {
@@ -153,23 +173,23 @@ function createParticles() {
     for (let i = 0; i < particleCount; i++) {
         const particle = document.createElement('div');
         particle.className = 'particle';
-        
+
         const size = Math.random() * 2 + 2;
         particle.style.width = `${size}px`;
         particle.style.height = `${size}px`;
-        
+
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
-        
+
         particle.style.setProperty('--moveX1', `${Math.random() * 300 - 150}px`);
         particle.style.setProperty('--moveY1', `${Math.random() * 300 - 150}px`);
         particle.style.setProperty('--moveX2', `${Math.random() * 300 - 150}px`);
         particle.style.setProperty('--moveY2', `${Math.random() * 300 - 150}px`);
         particle.style.setProperty('--moveX3', `${Math.random() * 300 - 150}px`);
         particle.style.setProperty('--moveY3', `${Math.random() * 300 - 150}px`);
-        
+
         particle.style.animationDelay = `${Math.random() * -30}s, ${Math.random() * -3}s`;
-        
+
         container.appendChild(particle);
     }
 }

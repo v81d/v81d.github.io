@@ -81,7 +81,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     createParticles();
 
-    // Add spotlight
     const mathButton = document.querySelector('.math-button');
     const spotlight = document.createElement('div');
     spotlight.className = 'spotlight';

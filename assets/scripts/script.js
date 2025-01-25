@@ -28,10 +28,6 @@ async function displayDailyQuote() {
     document.getElementById("quote").textContent = `❝${data.quotes[quoteIndex]}❞`;
 }
 
-const cursorDot = document.querySelector('.cursor-dot');
-const cursorCircle = document.querySelector('.cursor-circle');
-const cursorGlow = document.querySelector('.cursor-glow');
-
 let currentX = 0;
 let currentY = 0;
 let targetX = 0;
@@ -45,6 +41,8 @@ let circleTargetY = 0;
 function initCursorPosition(e) {
     const posX = e.clientX || window.innerWidth / 2;
     const posY = e.clientY || window.innerHeight / 2;
+
+    const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
 
     cursorDot.style.left = `${posX - 3}px`;
     cursorDot.style.top = `${posY - 3}px`;
@@ -66,6 +64,22 @@ function isTouchDevice() {
 
 document.addEventListener('DOMContentLoaded', () => {
     if (!isTouchDevice()) {
+        // Create cursor elements
+        const cursorContainer = document.createElement('div');
+        cursorContainer.innerHTML = `
+            <div class="cursor-dot"></div>
+            <div class="cursor-circle"></div>
+            <div class="cursor-glow"></div>
+        `;
+        document.body.appendChild(cursorContainer);
+
+        // Initialize cursor variables
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorCircle = document.querySelector('.cursor-circle');
+        const cursorGlow = document.querySelector('.cursor-glow');
+
+        window.cursorElements = { cursorDot, cursorCircle, cursorGlow };
+
         initCursorPosition({
             clientX: window.innerWidth / 2,
             clientY: window.innerHeight / 2
@@ -78,7 +92,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.addEventListener('mouseenter', showCursor);
         document.addEventListener('mousedown', handleMouseDown);
         document.addEventListener('mouseup', handleMouseUp);
+        
+        updatePositions();
     }
+    
     createParticles();
 
     const mathButton = document.querySelector('.math-button');
@@ -102,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function handleMouseMove(e) {
+    const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
     const posX = e.clientX;
     const posY = e.clientY;
 
@@ -115,11 +133,13 @@ function handleMouseMove(e) {
 }
 
 function handleMouseDown() {
+    const { cursorDot, cursorCircle } = window.cursorElements;
     cursorDot.style.transform = 'scale(0.8)';
     cursorCircle.style.transform = 'scale(0.8)';
 }
 
 function handleMouseUp() {
+    const { cursorDot, cursorCircle } = window.cursorElements;
     cursorDot.style.transform = 'scale(1)';
     cursorCircle.style.transform = 'scale(1)';
 }
@@ -129,6 +149,7 @@ function lerp(start, end, factor) {
 }
 
 function updatePositions() {
+    const { cursorCircle, cursorGlow } = window.cursorElements;
     circleX = lerp(circleX, circleTargetX, 0.2);
     circleY = lerp(circleY, circleTargetY, 0.2);
     cursorCircle.style.left = `${circleX}px`;
@@ -142,15 +163,15 @@ function updatePositions() {
     requestAnimationFrame(updatePositions);
 }
 
-updatePositions();
-
 function showCursor() {
+    const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
     cursorDot.classList.add('cursor-visible');
     cursorCircle.classList.add('cursor-visible');
     cursorGlow.classList.add('cursor-visible');
 }
 
 function hideCursor() {
+    const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
     cursorDot.classList.remove('cursor-visible');
     cursorCircle.classList.remove('cursor-visible');
     cursorGlow.classList.remove('cursor-visible');

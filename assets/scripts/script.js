@@ -149,12 +149,18 @@ function initCursorPosition(e) {
 }
 
 function isTouchDevice() {
-    return ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
+    return window.matchMedia('(hover: none) and (pointer: coarse)').matches;
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+function setupCursor() {
+    const existingCursor = document.querySelector('.cursor-container');
+    if (existingCursor) {
+        existingCursor.remove();
+    }
+
     if (!isTouchDevice()) {
         const cursorContainer = document.createElement("div");
+        cursorContainer.className = 'cursor-container';
         cursorContainer.innerHTML = `
             <div class="cursor-dot"></div>
             <div class="cursor-circle"></div>
@@ -183,6 +189,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updatePositions();
     }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    setupCursor();
+    
+    // Watch for input method changes
+    window.matchMedia('(hover: none) and (pointer: coarse)').addEventListener('change', setupCursor);
 
     createParticles();
 
@@ -191,19 +204,27 @@ document.addEventListener("DOMContentLoaded", () => {
     spotlight.className = "spotlight";
     mathButton.appendChild(spotlight);
 
-    mathButton.addEventListener("mousemove", (e) => {
-        const rect = mathButton.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-
-        spotlight.style.left = x + "px";
-        spotlight.style.top = y + "px";
-        spotlight.style.opacity = "1";
+    // Add touch events for the math button
+    mathButton.addEventListener("touchstart", (e) => {
+        e.preventDefault();
+        window.location.href = mathButton.getAttribute("href");
     });
 
-    mathButton.addEventListener("mouseleave", () => {
-        spotlight.style.opacity = "0";
-    });
+    if (!isTouchDevice()) {
+        mathButton.addEventListener("mousemove", (e) => {
+            const rect = mathButton.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            spotlight.style.left = x + "px";
+            spotlight.style.top = y + "px";
+            spotlight.style.opacity = "1";
+        });
+
+        mathButton.addEventListener("mouseleave", () => {
+            spotlight.style.opacity = "0";
+        });
+    }
 });
 
 function handleMouseMove(e) {

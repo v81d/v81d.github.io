@@ -244,3 +244,13 @@ body {
 * {
     cursor: none;
 }
+
+@media (hover: none) and (pointer: coarse) {
+    * {
+        cursor: auto !important;
+    }
+
+    .math-button {
+        cursor: pointer !important;
+    }
+}

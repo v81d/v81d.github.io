@@ -13,20 +13,71 @@ function seededRandom(seed) {
     }
 }
 
-async function displayDailyQuote() {
-    const response = await fetch("https://gist.githubusercontent.com/v81d/6598b11e0dc2d8e52c97cc46b84c8955/raw/quotes.json");
+let messages = [];
+let quotes = [];
+let currentMessageIndex = -1;
+let virtualScrollPosition = 0;
+let dailyQuote = "";
+
+async function loadContent() {
+    const response = await fetch("//gist.githubusercontent.com/v81d/5a26402ec848588bad10fc6401298577/raw/v81d.github.io.json");
     const data = await response.json();
+    messages = data.messages;
+    quotes = data.quotes;
 
     const today = new Date();
     const dateSeed = parseInt(
-        `${today.getUTCFullYear()}${(today.getUTCMonth() + 1).toString().padStart(2, '0')}${today.getUTCDate().toString().padStart(2, '0')}`
+        `${today.getUTCFullYear()}${(today.getUTCMonth() + 1).toString().padStart(2, "0")}${today.getUTCDate().toString().padStart(2, "0")}`
     );
-
     const random = seededRandom(dateSeed);
-    const quoteIndex = Math.floor(random() * data.quotes.length);
+    const quoteIndex = Math.floor(random() * quotes.length);
+    dailyQuote = quotes[quoteIndex];
+    displayText(dailyQuote);
 
-    document.getElementById("quote").textContent = `❝${data.quotes[quoteIndex]}❞`;
+    window.addEventListener("wheel", handleWheel, { passive: false });
 }
+
+function handleWheel(event) {
+    event.preventDefault();
+
+    virtualScrollPosition += event.deltaY;
+    virtualScrollPosition = Math.max(0, virtualScrollPosition);
+
+    if (virtualScrollPosition < 8640) {
+        if (currentMessageIndex !== -1) {
+            currentMessageIndex = -1;
+            displayText(dailyQuote);
+        }
+        return;
+    }
+
+    const newIndex = Math.floor((virtualScrollPosition - 8640) / 8640);
+
+    if (newIndex >= messages.length) {
+        virtualScrollPosition = 8640 * (messages.length - 1) + 8640;
+        return;
+    }
+
+    if (newIndex !== currentMessageIndex) {
+        currentMessageIndex = newIndex;
+        displayText(messages[newIndex]);
+    }
+}
+
+function displayText(text) {
+    const quoteElement = document.getElementById("quote");
+    quoteElement.style.opacity = "0";
+
+    setTimeout(() => {
+        const formattedText = text.replace(/\[lf\]/g, "<br>");
+        quoteElement.innerHTML = `❝ ${formattedText} ❞`;
+        requestAnimationFrame(() => {
+            quoteElement.style.opacity = "1";
+        });
+    }, 500);
+}
+
+loadContent();
 
 let currentX = 0;
 let currentY = 0;
@@ -59,13 +110,12 @@ function initCursorPosition(e) {
 }
 
 function isTouchDevice() {
-    return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+    return ("ontouchstart" in window) || (navigator.maxTouchPoints > 0);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", () => {
     if (!isTouchDevice()) {
-        // Create cursor elements
-        const cursorContainer = document.createElement('div');
+        const cursorContainer = document.createElement("div");
         cursorContainer.innerHTML = `
             <div class="cursor-dot"></div>
             <div class="cursor-circle"></div>
@@ -73,10 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
         document.body.appendChild(cursorContainer);
 
-        // Initialize cursor variables
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorCircle = document.querySelector('.cursor-circle');
-        const cursorGlow = document.querySelector('.cursor-glow');
+        const cursorDot = document.querySelector(".cursor-dot");
+        const cursorCircle = document.querySelector(".cursor-circle");
+        const cursorGlow = document.querySelector(".cursor-glow");
 
         window.cursorElements = { cursorDot, cursorCircle, cursorGlow };
 
@@ -86,35 +135,35 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         setTimeout(showCursor, 300);
 
-        document.addEventListener('mouseenter', initCursorPosition);
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseleave', hideCursor);
-        document.addEventListener('mouseenter', showCursor);
-        document.addEventListener('mousedown', handleMouseDown);
-        document.addEventListener('mouseup', handleMouseUp);
-        
+        document.addEventListener("mouseenter", initCursorPosition);
+        document.addEventListener("mousemove", handleMouseMove);
+        document.addEventListener("mouseleave", hideCursor);
+        document.addEventListener("mouseenter", showCursor);
+        document.addEventListener("mousedown", handleMouseDown);
+        document.addEventListener("mouseup", handleMouseUp);
+
         updatePositions();
     }
-    
+
     createParticles();
 
-    const mathButton = document.querySelector('.math-button');
-    const spotlight = document.createElement('div');
-    spotlight.className = 'spotlight';
+    const mathButton = document.querySelector(".math-button");
+    const spotlight = document.createElement("div");
+    spotlight.className = "spotlight";
     mathButton.appendChild(spotlight);
 
-    mathButton.addEventListener('mousemove', (e) => {
+    mathButton.addEventListener("mousemove", (e) => {
         const rect = mathButton.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        spotlight.style.left = x + 'px';
-        spotlight.style.top = y + 'px';
-        spotlight.style.opacity = '1';
+        spotlight.style.left = x + "px";
+        spotlight.style.top = y + "px";
+        spotlight.style.opacity = "1";
     });
 
-    mathButton.addEventListener('mouseleave', () => {
-        spotlight.style.opacity = '0';
+    mathButton.addEventListener("mouseleave", () => {
+        spotlight.style.opacity = "0";
     });
 });
 
@@ -134,14 +183,14 @@ function handleMouseMove(e) {
 
 function handleMouseDown() {
     const { cursorDot, cursorCircle } = window.cursorElements;
-    cursorDot.style.transform = 'scale(0.8)';
-    cursorCircle.style.transform = 'scale(0.8)';
+    cursorDot.style.transform = "scale(0.8)";
+    cursorCircle.style.transform = "scale(0.8)";
 }
 
 function handleMouseUp() {
     const { cursorDot, cursorCircle } = window.cursorElements;
-    cursorDot.style.transform = 'scale(1)';
-    cursorCircle.style.transform = 'scale(1)';
+    cursorDot.style.transform = "scale(1)";
+    cursorCircle.style.transform = "scale(1)";
 }
 
 function lerp(start, end, factor) {
@@ -165,34 +214,32 @@ function updatePositions() {
 
 function showCursor() {
     const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
-    cursorDot.classList.add('cursor-visible');
-    cursorCircle.classList.add('cursor-visible');
-    cursorGlow.classList.add('cursor-visible');
+    cursorDot.classList.add("cursor-visible");
+    cursorCircle.classList.add("cursor-visible");
+    cursorGlow.classList.add("cursor-visible");
 }
 
 function hideCursor() {
     const { cursorDot, cursorCircle, cursorGlow } = window.cursorElements;
-    cursorDot.classList.remove('cursor-visible');
-    cursorCircle.classList.remove('cursor-visible');
-    cursorGlow.classList.remove('cursor-visible');
+    cursorDot.classList.remove("cursor-visible");
+    cursorCircle.classList.remove("cursor-visible");
+    cursorGlow.classList.remove("cursor-visible");
 }
 
-window.addEventListener('focus', showCursor);
-window.addEventListener('blur', hideCursor);
+window.addEventListener("focus", showCursor);
+window.addEventListener("blur", hideCursor);
 
-displayDailyQuote();
-
-document.addEventListener('contextmenu', (event) => {
+document.addEventListener("contextmenu", (event) => {
     event.preventDefault();
 });
 
 function createParticles() {
-    const container = document.getElementById('particles');
+    const container = document.getElementById("particles");
     const particleCount = 16;
 
     for (let i = 0; i < particleCount; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
+        const particle = document.createElement("div");
+        particle.className = "particle";
 
         const size = Math.random() * 2 + 2;
         particle.style.width = `${size}px`;
@@ -201,12 +248,12 @@ function createParticles() {
         particle.style.left = `${Math.random() * 100}%`;
         particle.style.top = `${Math.random() * 100}%`;
 
-        particle.style.setProperty('--moveX1', `${Math.random() * 300 - 150}px`);
-        particle.style.setProperty('--moveY1', `${Math.random() * 300 - 150}px`);
-        particle.style.setProperty('--moveX2', `${Math.random() * 300 - 150}px`);
-        particle.style.setProperty('--moveY2', `${Math.random() * 300 - 150}px`);
-        particle.style.setProperty('--moveX3', `${Math.random() * 300 - 150}px`);
-        particle.style.setProperty('--moveY3', `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveX1", `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveY1", `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveX2", `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveY2", `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveX3", `${Math.random() * 300 - 150}px`);
+        particle.style.setProperty("--moveY3", `${Math.random() * 300 - 150}px`);
 
         particle.style.animationDelay = `${Math.random() * -30}s, ${Math.random() * -3}s`;
 

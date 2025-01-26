@@ -35,7 +35,6 @@ async function loadContent() {
     displayText(dailyQuote);
 
     window.addEventListener("wheel", handleWheel, { passive: false });
-    // Add touch event listeners
     window.addEventListener("touchstart", handleTouchStart, { passive: false });
     window.addEventListener("touchmove", handleTouchMove, { passive: false });
 }

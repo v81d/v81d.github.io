@@ -194,7 +194,6 @@ function setupCursor() {
 document.addEventListener("DOMContentLoaded", () => {
     setupCursor();
     
-    // Watch for input method changes
     window.matchMedia('(hover: none) and (pointer: coarse)').addEventListener('change', setupCursor);
 
     createParticles();
@@ -204,7 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
     spotlight.className = "spotlight";
     mathButton.appendChild(spotlight);
 
-    // Add touch events for the math button
     mathButton.addEventListener("touchstart", (e) => {
         e.preventDefault();
         window.location.href = mathButton.getAttribute("href");

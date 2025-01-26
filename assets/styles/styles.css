@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap');
-
 * {
     cursor: none !important;
 }
@@ -143,14 +141,13 @@ body {
     -webkit-text-fill-color: transparent;
     transform: translateY(0);
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
     animation:
         gradient 12s ease infinite,
         float 20s ease-in-out infinite;
     animation-direction: alternate-reverse, normal;
     transform-origin: center;
     will-change: transform;
-    transition: opacity 0.5s ease;
+    transition: opacity 1s ease;
 }
 
 #particles {
@@ -229,42 +226,14 @@ body {
     opacity: 1;
 }
 
-.math-button {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 10px 20px;
-    background: transparent;
-    border: 3px solid rgba(255, 255, 255, 0.05);
-    color: rgba(255, 255, 255, 0.1);
-    text-decoration: none;
-    font-size: 16px;
-    transition: all 3s ease,
-        scale 300ms ease;
-    z-index: 1000;
-    overflow: hidden;
-    opacity: 0;
-    animation: fadeIn 2.5s ease-out forwards;
-    animation-delay: 0.8s;
-}
-
-.math-button:hover {
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    color: rgba(255, 255, 255, 0.4);
-}
-
-.math-button:active {
-    scale: 0.9;
-}
-
 .spotlight {
     position: absolute;
     pointer-events: none;
     width: 120px;
     height: 120px;
     background: radial-gradient(circle,
-            rgba(255, 255, 255, 0.15) 0%,
-            rgba(255, 255, 255, 0.05) 40%,
+            rgba(255, 255, 255, 0.2) 0%,
+            rgba(255, 255, 255, 0.1) 40%,
             transparent 70%);
     transform: translate(-50%, -50%);
     opacity: 0;

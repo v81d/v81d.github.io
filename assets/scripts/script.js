@@ -35,12 +35,52 @@ async function loadContent() {
     displayText(dailyQuote);
 
     window.addEventListener("wheel", handleWheel, { passive: false });
+    // Add touch event listeners
+    window.addEventListener("touchstart", handleTouchStart, { passive: false });
+    window.addEventListener("touchmove", handleTouchMove, { passive: false });
 }
 
 function handleWheel(event) {
     event.preventDefault();
 
     virtualScrollPosition += event.deltaY;
+    virtualScrollPosition = Math.max(0, virtualScrollPosition);
+
+    if (virtualScrollPosition < 8640) {
+        if (currentMessageIndex !== -1) {
+            currentMessageIndex = -1;
+            displayText(dailyQuote);
+        }
+        return;
+    }
+
+    const newIndex = Math.floor((virtualScrollPosition - 8640) / 8640);
+
+    if (newIndex >= messages.length) {
+        virtualScrollPosition = 8640 * (messages.length - 1) + 8640;
+        return;
+    }
+
+    if (newIndex !== currentMessageIndex) {
+        currentMessageIndex = newIndex;
+        displayText(messages[newIndex]);
+    }
+}
+
+let lastTouchY = 0;
+
+function handleTouchStart(event) {
+    event.preventDefault();
+    lastTouchY = event.touches[0].clientY;
+}
+
+function handleTouchMove(event) {
+    event.preventDefault();
+    const touchY = event.touches[0].clientY;
+    const deltaY = (lastTouchY - touchY) * 2;
+    lastTouchY = touchY;
+
+    virtualScrollPosition += deltaY;
     virtualScrollPosition = Math.max(0, virtualScrollPosition);
 
     if (virtualScrollPosition < 8640) {

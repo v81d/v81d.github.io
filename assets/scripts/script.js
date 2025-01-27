@@ -45,7 +45,9 @@ function handleWheel(event) {
     virtualScrollPosition += event.deltaY;
     virtualScrollPosition = Math.max(0, virtualScrollPosition);
 
-    if (virtualScrollPosition < 8640) {
+    const screenBreakpoint = window.innerHeight * 8;
+
+    if (virtualScrollPosition < screenBreakpoint) {
         if (currentMessageIndex !== -1) {
             currentMessageIndex = -1;
             displayText(dailyQuote);
@@ -53,10 +55,10 @@ function handleWheel(event) {
         return;
     }
 
-    const newIndex = Math.floor((virtualScrollPosition - 8640) / 8640);
+    const newIndex = Math.floor((virtualScrollPosition - screenBreakpoint) / screenBreakpoint);
 
     if (newIndex >= messages.length) {
-        virtualScrollPosition = 8640 * (messages.length - 1) + 8640;
+        virtualScrollPosition = screenBreakpoint * (messages.length - 1) + screenBreakpoint;
         return;
     }
 
@@ -83,7 +85,9 @@ function handleTouchMove(event) {
     virtualScrollPosition += deltaY;
     virtualScrollPosition = Math.max(0, virtualScrollPosition);
 
-    if (virtualScrollPosition < 8640) {
+    const screenBreakpoint = window.innerHeight * 8;
+
+    if (virtualScrollPosition < screenBreakpoint) {
         if (currentMessageIndex !== -1) {
             currentMessageIndex = -1;
             displayText(dailyQuote);
@@ -91,10 +95,10 @@ function handleTouchMove(event) {
         return;
     }
 
-    const newIndex = Math.floor((virtualScrollPosition - 8640) / 8640);
+    const newIndex = Math.floor((virtualScrollPosition - screenBreakpoint) / screenBreakpoint);
 
     if (newIndex >= messages.length) {
-        virtualScrollPosition = 8640 * (messages.length - 1) + 8640;
+        virtualScrollPosition = screenBreakpoint * (messages.length - 1) + screenBreakpoint;
         return;
     }
 
@@ -110,7 +114,7 @@ function displayText(text) {
 
     setTimeout(() => {
         const formattedText = text.replace(/\[lf\]/g, "<br>");
-        quoteElement.innerHTML = `❝ ${formattedText} ❞`;
+        quoteElement.innerHTML = `${formattedText}`;
         requestAnimationFrame(() => {
             quoteElement.style.opacity = "1";
         });

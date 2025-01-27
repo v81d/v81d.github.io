@@ -69,12 +69,13 @@ function handleWheel(event) {
 let lastTouchY = 0;
 
 function handleTouchStart(event) {
-    event.preventDefault();
     lastTouchY = event.touches[0].clientY;
 }
 
 function handleTouchMove(event) {
-    event.preventDefault();
+    if (!event.target.closest('a')) {
+        event.preventDefault();
+    }
     const touchY = event.touches[0].clientY;
     const deltaY = (lastTouchY - touchY) * 2;
     lastTouchY = touchY;
@@ -202,11 +203,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const spotlight = document.createElement("div");
     spotlight.className = "spotlight";
     mathButton.appendChild(spotlight);
-
-    mathButton.addEventListener("touchstart", (e) => {
-        e.preventDefault();
-        window.location.href = mathButton.getAttribute("href");
-    });
 
     if (!isTouchDevice()) {
         mathButton.addEventListener("mousemove", (e) => {

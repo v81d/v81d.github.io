@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Today's Whisper</title>
+    <link rel="shortcut icon" href="./assets/media/icon.png">
+    <style>
+        .math-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            border: 3px solid rgba(255, 255, 255, 0.05);
+            color: rgba(255, 255, 255, 0.1);
+            text-decoration: none;
+            font-size: 16px;
+            transition: all 1s ease,
+                scale 300ms ease;
+            z-index: 1000;
+            overflow: hidden;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .math-button:hover {
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.4);
+        }
+
+        .math-button:active {
+            scale: 0.9;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
+</head>
+
+<body>
+    <div id="quote-container">
+        <p id="quote"></p>
+    </div>
+    <div id="particles"></div>
+    <a draggable="false" href="./mathemoglyphics/index.html" class="math-button">MATH</a>
+    <script src="./assets/scripts/script.js"></script>
+</body>
+
+</html>

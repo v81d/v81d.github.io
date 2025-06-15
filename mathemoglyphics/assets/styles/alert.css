@@ -95,6 +95,7 @@
     position: fixed;
     height: 100% !important;
     width: 100% !important;
+    background-color: rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     opacity: 0;
@@ -109,16 +110,12 @@
     justify-self: center !important;
     background: rgb(60, 0, 99);
     border-radius: 7px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.375);
+    box-shadow: 0 4px 8px 0 rgba(31, 0, 51, 0.3);
     transition: all 0.8s ease;
-    max-width: 70%;
-    min-width: 25%;
+    width: 70%;
+    max-width: 700px;
     z-index: 100000;
     margin: auto;
-}
-
-#dialogbox:hover {
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.575);
 }
 
 .pure-material-button-contained {
